@@ -31,17 +31,15 @@ public class HelloController {
 	   @RequestMapping(value = "/admin_user", method = RequestMethod.POST)
 	   public ModelAndView logUser(@ModelAttribute("SpringWeb")Reader reader, 
 	   ModelMap model) {
-	   /*   model.addAttribute("name", reader.getName());
-	      model.addAttribute("password", reader.getPass()); */
 	      //DB check must goes under here
-		   Iterable<User> users = repository.findAll();new ModelAndView("login", "command", new Reader());
+		   Iterable<User> users = repository.findAll();
 		   for (Object user : users) {
 				User cc = (User) user;
 				if (cc.getUsername()==reader.getName() && cc.getPassword()== reader.getPass()){
 					if(cc.getAdmin()==true ){
-						return new ModelAndView("news_post", "command", new News());
+						return new ModelAndView("news_post", "command", new News());//post view
 					}else{
-						//return user view
+						//return user view (reading view)
 					}								
 				}				
 			}
