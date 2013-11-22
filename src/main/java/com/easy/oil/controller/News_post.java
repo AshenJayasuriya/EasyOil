@@ -1,6 +1,6 @@
 package com.easy.oil.controller;
 
-public class News {
+public class News_post {
 	private String title;
 	private String body;
 	private String author;

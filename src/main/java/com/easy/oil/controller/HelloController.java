@@ -37,7 +37,7 @@ public class HelloController {
 				User cc = (User) user;
 				if (cc.getUsername()==reader.getName() && cc.getPassword()== reader.getPass()){
 					if(cc.getAdmin()==true ){
-						return new ModelAndView("news_post", "command", new News());//post view
+						return new ModelAndView("news_post", "command", new News_post());//post view
 					}else{
 						//return user view (reading view)
 					}								
