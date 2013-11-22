@@ -3,8 +3,16 @@ package com.easy.oil.controller;
 public class News_post {
 	private String title;
 	private String body;
-	private String author;
 	private String price;
+	private String user_id;
+	
+	public News_post(String user_id){
+		this.user_id = user_id;
+	}
+	
+	public String getId(){
+		return user_id;
+	}
 	
 	public void setTitle(String title){
 		this.title = title;
@@ -14,9 +22,6 @@ public class News_post {
 		this.body = body;
 	}
 	
-	public void setName(String name){
-		this.author = name;
-	}
 
 	public void setPrice(String price){
 		this.price = price;
@@ -30,9 +35,6 @@ public class News_post {
 		return body;
 	}
 	
-	public String getName(){
-		return author;
-	}
 	
 	public String getPrice(){
 		return price;

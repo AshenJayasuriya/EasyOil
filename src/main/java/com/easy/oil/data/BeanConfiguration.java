@@ -29,14 +29,12 @@ public class BeanConfiguration {
 	}
 
 	@Bean
-
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, JpaVendorAdapter jpaVendorAdapter) {
 		LocalContainerEntityManagerFactoryBean lef = new LocalContainerEntityManagerFactoryBean();
-		lef.setDataSource(dataSource);
+		lef.setDataSource(dataSource);// data sourse
 		lef.setJpaVendorAdapter(jpaVendorAdapter);
-		lef.setPackagesToScan("com.easy.oil.data");
+		lef.setPackagesToScan("com.easy.oil.data");// package folder
 		return lef;
-
 	}
 
 	@Bean

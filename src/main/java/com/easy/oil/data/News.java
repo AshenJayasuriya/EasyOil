@@ -10,13 +10,14 @@ public class News {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	private String user_id;
-	private String headline;
-	private String content;
-	private double cost;
-	private String date;
+	public String user_id;
+	public String headline;
+	public String content;
+	public String cost;
+	public String date;
 	
-	public News(String user_id,String headline,String content,double cost,String date){
+	public News(String user_id,String headline,String content,String cost,String date){
+		super();
 		this.user_id =  user_id;
 		this.headline = headline;
 		this.content = content;
@@ -56,11 +57,11 @@ public class News {
 		this.content = content;
 	}
 
-	public double getCost() {
+	public String getCost() {
 		return cost;
 	}
 
-	public void setCost(double cost) {
+	public void setCost(String cost) {
 		this.cost = cost;
 	}
 
