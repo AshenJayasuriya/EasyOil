@@ -34,7 +34,7 @@ public class BeanConfiguration {
 		LocalContainerEntityManagerFactoryBean lef = new LocalContainerEntityManagerFactoryBean();
 		lef.setDataSource(dataSource);
 		lef.setJpaVendorAdapter(jpaVendorAdapter);
-		lef.setPackagesToScan("com.data");
+		lef.setPackagesToScan("com.easy.oil.data");
 		return lef;
 
 	}

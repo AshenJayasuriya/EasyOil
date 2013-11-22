@@ -13,6 +13,7 @@ import org.springframework.ui.ModelMap;
 import com.easy.oil.data.UserRepository;
 import com.easy.oil.data.User;
 import com.easy.oil.data.BeanConfiguration;
+import com.easy.oil.data.News;
 
 @Controller
 public class HelloController {
@@ -35,15 +36,21 @@ public class HelloController {
 		   Iterable<User> users = repository.findAll();
 		   for (Object user : users) {
 				User cc = (User) user;
-				if (cc.getUsername()==reader.getName() && cc.getPassword()== reader.getPass()){
+				if (cc.getUsername().equals(reader.getName()) && cc.getPassword().equals(reader.getPass())){
 					if(cc.getAdmin()==true ){
 						return new ModelAndView("news_post", "command", new News_post());//post view
 					}else{
-						//return user view (reading view)
+						ModelAndView r_model = new ModelAndView("news_view");
+						/*r_model.addObject("msg", Ne);
+						 * 
+						 * news head line content  / author must add 
+						 * 
+						 */
+						return r_model;
 					}								
 				}				
 			}
-	      //if not in db return user login
+	      //if not in db return user login (with error)
 		  return new ModelAndView("login", "command", new Reader());
 	   }
 	   

@@ -31,6 +31,10 @@ public class User {
 	public User() {
 
 	}
+	
+	public long getId() {
+		return id;
+	}
 
 	public String getFirstName() {
 		return first_name;
