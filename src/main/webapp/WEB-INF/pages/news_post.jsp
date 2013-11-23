@@ -13,7 +13,7 @@
 <hr></hr>
 <p style="margin-left: 50px">News Feed</p>
 <div style="margin-right: 550px; margin-top: 50px">
-<form:form method="POST" action="/SpringMVC/news_post">
+<form:form method="POST" action="/SpringMVC/news_posted">
 
 	<table align="center">
 		<tr>
@@ -25,12 +25,7 @@
 			<td> Body : </td>
 			<td> <form:textarea path="body" cssStyle="width : 364px; height : 109px;"/>
 		</tr>
-		
-		<tr>
-			<td> Author : </td>
-			<td> <form:input path="name"/>
-		</tr>
-		
+				
 		<tr>
 			<td> Price : </td>
 			<td> <form:input path="price"/>

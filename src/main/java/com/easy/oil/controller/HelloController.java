@@ -27,7 +27,7 @@ public class HelloController {
 	  UserRepository repository = context.getBean(UserRepository.class);
 	  NewsRepository news_repo = context.getBean(NewsRepository.class);
 	  ///
-	  Date dd = new Date();
+	  Date dd;
 //logging page login request come to this page
 	   @RequestMapping(value = "/login", method = RequestMethod.GET)
 	   public ModelAndView user() {
@@ -64,6 +64,7 @@ public class HelloController {
 //commeting new news
 	   @RequestMapping(value = "/news_posted", method = RequestMethod.POST)
 	   public ModelAndView postAdmin(@ModelAttribute("SpringWeb")News_post np) {
+		   dd =  new Date();
 		   try{
 			   news_repo.save(new News(np.getId(), np.getTitle(),np.getBody(),np.getPrice(),dd.toString()));
 		   }catch(Exception e){

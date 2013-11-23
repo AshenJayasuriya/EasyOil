@@ -10,6 +10,10 @@ public class News_post {
 		this.user_id = user_id;
 	}
 	
+	public News_post(){
+		
+	}
+	
 	public String getId(){
 		return user_id;
 	}

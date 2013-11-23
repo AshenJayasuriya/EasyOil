@@ -21,7 +21,7 @@ public class BeanConfiguration {
 	public DataSource dataSource() {
 		BasicDataSource ds = new org.apache.commons.dbcp.BasicDataSource();
 		ds.setDriverClassName("com.mysql.jdbc.Driver");
-		ds.setUrl("jdbc:mysql://localhost:3306/easy_oil");
+		ds.setUrl("jdbc:mysql://localhost:3306/easy_fuel");
 		ds.setUsername("root");
 		ds.setPassword("root");
 		return ds;
