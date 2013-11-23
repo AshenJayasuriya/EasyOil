@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 23, 2013 at 06:21 PM
+-- Generation Time: Nov 24, 2013 at 01:29 AM
 -- Server version: 5.5.32-0ubuntu0.13.04.1
 -- PHP Version: 5.4.9-4ubuntu2.3
 
@@ -36,14 +36,7 @@ CREATE TABLE IF NOT EXISTS `News` (
   `headline` varchar(255) DEFAULT NULL,
   `user_id` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `News`
---
-
-INSERT INTO `News` (`id`, `content`, `cost`, `date`, `headline`, `user_id`) VALUES
-(1, 'wee', '100', 'Sat Nov 23 12:55:16 IST 2013', 'Price can''t maintain', NULL);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -65,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `User` (
   UNIQUE KEY `user_Id` (`user_id`),
   KEY `username_2` (`username`),
   KEY `username_3` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `User`
@@ -73,7 +66,8 @@ CREATE TABLE IF NOT EXISTS `User` (
 
 INSERT INTO `User` (`user_id`, `first_name`, `last_name`, `e_mail`, `username`, `password`, `admin`, `currency`) VALUES
 (1, 'Amal', 'Gunadasa', 'Amal@gmail.com', 'asd', '123', 1, 'USD'),
-(2, 'Blan', 'Kumara', 'Kumara@gmail.com', 'qwe', '345', 1, 'RS');
+(2, 'Blan', 'Kumara', 'Kumara@gmail.com', 'qwe', '345', 1, 'RS'),
+(3, 'kasun', 'kumara', 'kumara@gmail.com', 'qq', '11', 0, 'Rs');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
