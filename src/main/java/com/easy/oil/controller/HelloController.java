@@ -1,13 +1,6 @@
 package com.easy.oil.controller;
 
-
-
-import java.util.Date;
 import java.util.Map;
-
-
-
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -28,6 +21,7 @@ import com.easy.oil.data.StdUser;
 import com.easy.oil.data.BeanConfiguration;
 import com.easy.oil.data.News;
 import java.sql.Timestamp;
+import java.util.Date;
 
 @Controller
 @SessionAttributes("session_u_id")   
@@ -37,8 +31,6 @@ public class HelloController {
 	  private AbstractApplicationContext context = new AnnotationConfigApplicationContext(BeanConfiguration.class);
 	  private StdUserRepository repository = context.getBean(StdUserRepository.class);
 	  private NewsRepository news_repo = context.getBean(NewsRepository.class);
-	  ///
-	  private Date dd;
 	  private String db_uid;
 	  private Map mp;
 	  private String submit_u_id;
@@ -83,15 +75,15 @@ public class HelloController {
 	   
 //commeting new news
 	   @RequestMapping(value = "/news_posted", method = RequestMethod.POST)
-	   public ModelAndView postAdmin(News_post np,Model model,HttpSession ss) {
-		             Timestamp timestmp = new Timestamp(2013,10,10,10,10,10,10);
+	   public ModelAndView postAdmin(News_post np,Model model,HttpSession session) {
+                   Date date = new Date();
 		   try{
 			   //String uuid = session.get
 			   mp = model.asMap();
 			   submit_u_id = (String) mp.get("session_u_id");
-			   news_repo.save(new News(submit_u_id, np.getTitle(),np.getBody(),np.getPrice(),timestmp));
+			   news_repo.save(new News(submit_u_id, np.getTitle(),np.getBody(),np.getPrice(),(new Timestamp(date.getTime()))));
 			   
-                           ss.invalidate();
+                           session.invalidate();
 		   }catch(Exception e){
 			   
 		   }finally{

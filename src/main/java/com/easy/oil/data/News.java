@@ -78,7 +78,7 @@ public class News implements Serializable {
 	@Override
 	public String toString() {
 		return "News [user_id=" + user_id + ", headline=" + headline
-				+ ", content=" + content + ", cost=" + cost + ", date=" + timestmp
+				+ ", content=" + content + ", cost=" + cost + ", timestamp=" + timestmp
 				+ "]";
 	}
 	
