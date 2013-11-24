@@ -23,8 +23,8 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 
 import com.easy.oil.data.NewsRepository;
-import com.easy.oil.data.UserRepository;
-import com.easy.oil.data.User;
+import com.easy.oil.data.StdUserRepository;
+import com.easy.oil.data.StdUser;
 import com.easy.oil.data.BeanConfiguration;
 import com.easy.oil.data.News;
 
@@ -34,7 +34,7 @@ public class HelloController {
 		
 		//db connection propreties
 	  private AbstractApplicationContext context = new AnnotationConfigApplicationContext(BeanConfiguration.class);
-	  private UserRepository repository = context.getBean(UserRepository.class);
+	  private StdUserRepository repository = context.getBean(StdUserRepository.class);
 	  private NewsRepository news_repo = context.getBean(NewsRepository.class);
 	  ///
 	  private Date dd;
@@ -55,9 +55,9 @@ public class HelloController {
 	   public ModelAndView logUser(Reader reader) {
 	      //DB check must goes under here
 		   //repository.fi
-		   Iterable<User> users = repository.findAll();
+		   Iterable<StdUser> users = repository.findAll();
 		   for (Object obj : users) {
-				User cc = (User) obj;
+				StdUser cc = (StdUser) obj;
 				if (cc.getUsername().equals(reader.getName()) && cc.getPassword().equals(reader.getPass())){
 					System.out.println(reader.getName() + cc.getUsername() );
 					if(cc.getAdmin()==true ){
