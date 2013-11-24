@@ -27,6 +27,7 @@ import com.easy.oil.data.StdUserRepository;
 import com.easy.oil.data.StdUser;
 import com.easy.oil.data.BeanConfiguration;
 import com.easy.oil.data.News;
+import java.sql.Timestamp;
 
 @Controller
 @SessionAttributes("session_u_id")   
@@ -83,13 +84,14 @@ public class HelloController {
 //commeting new news
 	   @RequestMapping(value = "/news_posted", method = RequestMethod.POST)
 	   public ModelAndView postAdmin(News_post np,Model model,HttpSession ss) {
-		   dd =  new Date();
+		             Timestamp timestmp = new Timestamp(2013,10,10,10,10,10,10);
 		   try{
 			   //String uuid = session.get
 			   mp = model.asMap();
 			   submit_u_id = (String) mp.get("session_u_id");
-			   news_repo.save(new News(submit_u_id, np.getTitle(),np.getBody(),np.getPrice(),dd.toString()));
-			   ss.invalidate();
+			   news_repo.save(new News(submit_u_id, np.getTitle(),np.getBody(),np.getPrice(),timestmp));
+			   
+                           ss.invalidate();
 		   }catch(Exception e){
 			   
 		   }finally{
