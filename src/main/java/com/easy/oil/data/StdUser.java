@@ -1,34 +1,37 @@
 package com.easy.oil.data;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class User {
+public class StdUser implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long user_id;
-	public String first_name;
-	public String last_name;
-	public String username;
-	public String e_mail;
-	public String password;
-	public boolean admin;
-	public String currency;
-	public User(String first_name, String last_name ,String e_mail , String password, boolean admin, String currency) {
+	private String first_name;
+	private String last_name;
+	private String username;
+	private String e_mail;
+	private String password;
+	private boolean administrator;
+	private String currency;
+	
+        
+        public StdUser(String first_name, String last_name ,String e_mail , String password, boolean administrator, String currency) {
 		//super();
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.e_mail = e_mail;
 		this.password = password;
-		this.admin = admin;
+		this.administrator = administrator;
 		this.currency = currency;
 	}
 
-	public User() {
+	public StdUser() {
 
 	}
 	
@@ -77,11 +80,11 @@ public class User {
 	}
 	
 	public boolean getAdmin() {
-		return admin;
+		return administrator;
 	}
 
-	public void setAdmmin(boolean admin) {
-		this.admin = admin;
+	public void setAdmmin(boolean administrator) {
+		this.administrator = administrator;
 	}
 	
 	public String getCurrency() {
@@ -96,7 +99,7 @@ public class User {
 	public String toString() {
 		return "User [id=" + user_id + ", first_name=" + first_name + ", last_name="
 				+ last_name + ", username=" + username + ", e_mail=" + e_mail
-				+ ", password=" + password + ", admin=" + admin + ", currency="
+				+ ", password=" + password + ", admin=" + administrator + ", currency="
 				+ currency + "]";
 	}
 

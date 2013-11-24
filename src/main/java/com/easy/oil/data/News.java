@@ -1,28 +1,30 @@
 package com.easy.oil.data;
 
+import java.io.Serializable;
+import java.sql.Timestamp;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class News {	
+public class News implements Serializable {	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	public String user_id;
-	public String headline;
-	public String content;
-	public String cost;
-	public String date;
+	private String user_id;
+	private String headline;
+	private String content;
+	private String cost;
+	private Timestamp timestmp;
 	
-	public News(String user_id,String headline,String content,String cost,String date){
+	public News(String user_id,String headline,String content,String cost,Timestamp timestmp){
 		super();
 		this.user_id =  user_id;
 		this.headline = headline;
 		this.content = content;
 		this.cost = cost;
-		this.date = date;
+		this.timestmp = timestmp;
 	}
 	
 	public News(){
@@ -65,18 +67,18 @@ public class News {
 		this.cost = cost;
 	}
 
-	public String getDate() {
-		return date;
+	public Timestamp getDate() {
+		return timestmp;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	public void setDate(Timestamp timestmp) {
+		this.timestmp = timestmp;
 	}
 
 	@Override
 	public String toString() {
 		return "News [user_id=" + user_id + ", headline=" + headline
-				+ ", content=" + content + ", cost=" + cost + ", date=" + date
+				+ ", content=" + content + ", cost=" + cost + ", date=" + timestmp
 				+ "]";
 	}
 	
