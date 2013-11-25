@@ -22,7 +22,7 @@
     
     <mvc:annotation-driven/>
 
-	<mvc:resources mapping="/resources/**" location="/resources/kasun" />
+	<mvc:resources mapping="/resources/**" location="/resources/" />
     
     
 </beans>

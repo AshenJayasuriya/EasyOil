@@ -40,7 +40,7 @@
 		
 		<h1>Colour is Green</h1>
  
-		<h2>2. Test JS</h2>
+		<h2> Java script Test</h2>
 		<div id="msg"></div>
 		
 	</body>
