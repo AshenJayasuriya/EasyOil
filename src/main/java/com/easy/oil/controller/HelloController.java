@@ -34,6 +34,7 @@ public class HelloController {
 	  private String db_uid;
 	  private Map mp;
 	  private String submit_u_id;
+	  private Date date;
 //logging page login request come to this page
 	   @RequestMapping(value = "/login", method = RequestMethod.GET)
 	   public ModelAndView user() {
@@ -76,14 +77,13 @@ public class HelloController {
 //commeting new news
 	   @RequestMapping(value = "/news_posted", method = RequestMethod.POST)
 	   public ModelAndView postAdmin(News_post np,Model model,HttpSession session) {
-                   Date date = new Date();
+               date = new Date();
 		   try{
 			   //String uuid = session.get
 			   mp = model.asMap();
 			   submit_u_id = (String) mp.get("session_u_id");
 			   news_repo.save(new News(submit_u_id, np.getTitle(),np.getBody(),np.getPrice(),(new Timestamp(date.getTime()))));
-			   
-                           session.invalidate();
+               session.invalidate();
 		   }catch(Exception e){
 			   
 		   }finally{
