@@ -1,8 +1,10 @@
 package com.easy.oil.controller;
 
 import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -20,6 +22,7 @@ import com.easy.oil.data.StdUserRepository;
 import com.easy.oil.data.StdUser;
 import com.easy.oil.data.BeanConfiguration;
 import com.easy.oil.data.News;
+
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -52,8 +55,8 @@ public class HelloController {
 		   Iterable<StdUser> users = repository.findAll();
 		   for (Object obj : users) {
 				StdUser cc = (StdUser) obj;
-				if (cc.getUsername().equals(reader.getName()) && cc.getPassword().equals(reader.getPass())){
-					System.out.println(reader.getName() + cc.getUsername() );
+				if (cc.getUsername().equals(reader.getName()) && cc.getPassword().equals(DigestUtils.md5Hex(reader.getPass()))){
+					//System.out.println(reader.getName() + cc.getUsername() );
 					if(cc.getAdmin()==true ){
 						ModelAndView amv = new ModelAndView("news_post", "command", new News_post());
 						db_uid = String.valueOf(cc.getId());

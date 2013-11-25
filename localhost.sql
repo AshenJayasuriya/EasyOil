@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 24, 2013 at 10:08 PM
--- Server version: 5.5.32-0ubuntu0.13.04.1
+-- Generation Time: Nov 25, 2013 at 09:58 AM
+-- Server version: 5.5.34-0ubuntu0.13.04.1
 -- PHP Version: 5.4.9-4ubuntu2.3
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
@@ -73,9 +73,9 @@ CREATE TABLE IF NOT EXISTS `StdUser` (
 --
 
 INSERT INTO `StdUser` (`user_id`, `first_name`, `last_name`, `e_mail`, `username`, `password`, `administrator`, `currency`) VALUES
-(1, 'Amal', 'Gunadasa', 'Amal@gmail.com', 'asd', '123', 1, 'USD'),
-(2, 'Blan', 'Kumara', 'Kumara@gmail.com', 'qwe', '345', 1, 'RS'),
-(3, 'kasun', 'kumara', 'kumara@gmail.com', 'qq', '11', 0, 'Rs');
+(1, 'Amal', 'Gunadasa', 'Amal@gmail.com', 'asd', '202cb962ac59075b964b07152d234b70', 1, 'USD'),
+(2, 'Blan', 'Kumara', 'Kumara@gmail.com', 'qwe', 'd81f9c1be2e08964bf9f24b15f0e4900', 1, 'RS'),
+(3, 'kasun', 'kumara', 'kumara@gmail.com', 'qq', '6512bd43d9caa6e02c990b0a82652dca', 0, 'Rs');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
