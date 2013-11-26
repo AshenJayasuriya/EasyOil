@@ -16,6 +16,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 import com.easy.oil.data.Currency;
@@ -28,6 +29,8 @@ import com.easy.oil.data.StdUser;
 import com.easy.oil.data.BeanConfiguration;
 import com.easy.oil.data.News;
 
+import com.easy.oil.task.Corns;
+
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -39,7 +42,10 @@ public class HelloController {
 	  private AbstractApplicationContext context = new AnnotationConfigApplicationContext(BeanConfiguration.class);
 	  private StdUserRepository repository = context.getBean(StdUserRepository.class);
 	  private NewsRepository news_repo = context.getBean(NewsRepository.class);
+	 // private Corn cc = new Corn(context);
 	  private CurrencyRepository currency_rate = context.getBean(CurrencyRepository.class);
+	 // Corns.
+	  //private Corns cc = new Corns(currency_rate);
 	  private String db_uid;
 	  private Map mp;
 	  private String submit_u_id;
@@ -127,8 +133,9 @@ public class HelloController {
 		   return new ModelAndView("thank_you");
 		   //return "0k";
 	   }
-	 /*  
-	   private void Update_rates(){
+	 
+	   //update currency rates day by day
+	 /*  private void Update_rates(){
 		   //currency_rate.
 		   int count =  (int) currency_rate.count();
 		   Currency cc = currency_rate.findOne(1);
