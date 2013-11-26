@@ -60,10 +60,13 @@ public class HelloController {
 					if(cc.getAdmin()==true ){
 						ModelAndView amv = new ModelAndView("news_post", "command", new News_post());
 						db_uid = String.valueOf(cc.getId());
+						amv.addObject("currency_type", cc.getCurrency());
 						amv.addObject("session_u_id", db_uid);
 						return amv;//post view
 					}else{
 						ModelAndView r_model = new ModelAndView("news_view");
+						r_model.addObject("currency_type", cc.getCurrency());
+						r_model.addObject("user_name", cc.getUsername());
 						/*r_model.addObject("msg", Ne);
 						 * 
 						 * news head line content  / author must add 
@@ -79,7 +82,7 @@ public class HelloController {
 	   
 //commeting new news
 	   @RequestMapping(value = "/news_posted", method = RequestMethod.POST)
-	   public ModelAndView postAdmin(News_post np,Model model,HttpSession session) {
+	   public String postAdmin(News_post np,Model model,HttpSession session) {
                date = new Date();
 		   try{
 			   //String uuid = session.get
@@ -93,7 +96,8 @@ public class HelloController {
 			   
 			   
 		   }	   
-		   return new ModelAndView("thank_you");
+		   //return new ModelAndView("thank_you");
+		   return "0k";
 	   }
 	   
 //after write pass word and 

@@ -1,23 +1,38 @@
 package com.easy.oil.data;
 
 import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "StdUser")
 public class StdUser implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long user_id;
+	@Column(name="first_name")
 	private String first_name;
+	@Column(name="last_name")
 	private String last_name;
+	@Column(name="username")
 	private String username;
+	@Column(name="e_mail")
 	private String e_mail;
+	@Column(name="password")
 	private String password;
+	@Column(name="administrator")
 	private boolean administrator;
+	@Column(name="currency")
 	private String currency;
 	
         

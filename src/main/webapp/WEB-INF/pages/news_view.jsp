@@ -13,14 +13,10 @@
 
 <h2 style="margin-left: 450px">Welcome to Easy Oil </h2>
 <hr></hr>
-   <table>
+   <table align="center">
     <tr>
-        <td>Name</td>
-        <td>${name}</td>
-    </tr>
-    <tr>
-        <td>Password</td>
-        <td>${password}</td>
+        <td> <h3> Hello &nbsp;  </h3> </td>
+        <td> <h2> ${user_name} </h2> </td>
     </tr>
     
     <tr>
@@ -29,12 +25,11 @@
     </tr>
 
 </table> 
-<textarea rows="10" cols="45" style="FONT-SIZE: x-large; width : 517px; height : 112px;">Add News here</textarea> 
+ 
 		<table align="center">
-			<tr> <br> <br>  </tr>
+			<tr> <td> <textarea rows="10" cols="45" style="FONT-SIZE: x-large; width : 517px; height : 112px;">Add News here</textarea> </td> </tr>
 			<tr>
-				<td>Price </td>
-				<td>${ammount}</td>
+				<th colspan="2"> <h2>Today Price is <h1> ${currency_type} &nbsp; ${ammount}  </h2>  </th>
 			</tr>
 		</table>
 		
