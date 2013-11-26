@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 
+import com.easy.oil.data.CurrencyRepository;
 import com.easy.oil.data.NewsRepository;
 import com.easy.oil.data.StdUserRepository;
 import com.easy.oil.data.StdUser;
@@ -34,6 +35,7 @@ public class HelloController {
 	  private AbstractApplicationContext context = new AnnotationConfigApplicationContext(BeanConfiguration.class);
 	  private StdUserRepository repository = context.getBean(StdUserRepository.class);
 	  private NewsRepository news_repo = context.getBean(NewsRepository.class);
+	  private CurrencyRepository currency_rate = context.getBean(CurrencyRepository.class);
 	  private String db_uid;
 	  private Map mp;
 	  private String submit_u_id;
@@ -82,7 +84,7 @@ public class HelloController {
 	   
 //commeting new news
 	   @RequestMapping(value = "/news_posted", method = RequestMethod.POST)
-	   public String postAdmin(News_post np,Model model,HttpSession session) {
+	   public ModelAndView postAdmin(News_post np,Model model,HttpSession session) {
                date = new Date();
 		   try{
 			   //String uuid = session.get
@@ -96,8 +98,12 @@ public class HelloController {
 			   
 			   
 		   }	   
-		   //return new ModelAndView("thank_you");
-		   return "0k";
+		   return new ModelAndView("thank_you");
+		   //return "0k";
+	   }
+	   
+	   private void Update_rates(){
+		   //currency_rate.
 	   }
 	   
 //after write pass word and 
