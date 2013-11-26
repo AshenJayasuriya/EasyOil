@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 
+import com.easy.oil.data.Currency;
 import com.easy.oil.data.CurrencyRepository;
 import com.easy.oil.data.NewsRepository;
 import com.easy.oil.data.StdUserRepository;
@@ -69,6 +70,7 @@ public class HelloController {
 						ModelAndView r_model = new ModelAndView("news_view");
 						r_model.addObject("currency_type", cc.getCurrency());
 						r_model.addObject("user_name", cc.getUsername());
+						Update_rates();
 						/*r_model.addObject("msg", Ne);
 						 * 
 						 * news head line content  / author must add 
@@ -104,6 +106,10 @@ public class HelloController {
 	   
 	   private void Update_rates(){
 		   //currency_rate.
+		   int count =  (int) currency_rate.count();
+		   Currency cc = currency_rate.findOne(1);
+		   cc.setUsd_value(count);
+		   currency_rate.save(cc);
 	   }
 	   
 //after write pass word and 
