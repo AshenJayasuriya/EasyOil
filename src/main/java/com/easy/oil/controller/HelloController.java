@@ -91,7 +91,7 @@ public class HelloController {
 			   mp = model.asMap();
 			   submit_u_id = (String) mp.get("session_u_id");
 			   news_repo.save(new News(submit_u_id, np.getTitle(),np.getBody(),np.getPrice(),(new Timestamp(date.getTime()))));
-			   repository.save(new StdUser("John", "Smith", "johnsmith@gmail.com", "jsmith", "abc123", false, "USD"));
+			   //repository.save(new StdUser("John", "Smith","jsmith","johnsmith@gmail.com", "abc123", false, "USD"));
                session.invalidate();
 		   }catch(Exception e){
 			   
