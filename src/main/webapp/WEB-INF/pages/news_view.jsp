@@ -27,7 +27,7 @@
 </table> 
  
 		<table align="center">
-			<tr> <td> <textarea rows="10" cols="45" style="FONT-SIZE: x-large; width : 517px; height : 112px;">Add News here</textarea> </td> </tr>
+			<tr> <td> <label rows="10" cols="45" style="FONT-SIZE: x-large; width : 517px; height : 112px;">${content}</label> </td> </tr>
 			<tr>
 				<th colspan="2"> <h2>Today Price is <h1> ${currency_type} &nbsp; ${ammount}  </h2>  </th>
 			</tr>
