@@ -12,11 +12,15 @@
 <body style="background-image: url('http://www.freefever.com/stock/birds-and-leaves-on-yellow-background.jpg');">
 
 <h2 style="margin-left: 450px">Welcome to Easy Oil </h2>
-<hr></hr>
-   <table align="center">
+<hr>
+<table align="center">
     <tr>
-        <td> <h3> Hello &nbsp;  </h3> </td>
-        <td> <h2> ${user_name} </h2> </td>
+        <td> 
+            <h3> Hello &nbsp;  </h3> 
+        </td>
+        <td> 
+            <h2> ${user_name} </h2> 
+        </td>
     </tr>
     
     <tr>
@@ -27,16 +31,27 @@
 </table> 
  
 		<table align="center">
-			<tr> <td> <label rows="10" cols="45" style="FONT-SIZE: x-large; width : 517px; height : 112px;">${content}</label> </td> </tr>
+                        <tr> 
+                            <td> 
+                                <label>${headline}<label/>
+                            </td>
+                        </tr>
+			<tr> 
+                            <td> 
+                                <label>${content}</label> 
+                            </td> 
+                        </tr>
 			<tr>
-				<th colspan="2"> <h2>Today Price is <h1> ${currency_type} &nbsp; ${ammount}  </h2>  </th>
+                            <th colspan="2"> 
+                                <h3>Todays Price is <h2>
+                                <h2> ${currency_type} &nbsp;&nbsp; ${cost}  </h2>  
+                            </th>
 			</tr>
 		</table>
 		
-		<h1>Colour is Green</h1>
+		<h1>Color is Green</h1>
  
 		<h2> Java script Test</h2>
-		<div id="msg"></div>
-		
+		<div id="msg"></div>		
 	</body>
 </html>
