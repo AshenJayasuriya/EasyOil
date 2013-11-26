@@ -17,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 
-import com.easy.oil.data.CurrencyRepository;
+//import com.easy.oil.data.CurrencyRepository;
 import com.easy.oil.data.NewsRepository;
 import com.easy.oil.data.StdUserRepository;
 import com.easy.oil.data.StdUser;
@@ -35,7 +35,7 @@ public class HelloController {
 	  private AbstractApplicationContext context = new AnnotationConfigApplicationContext(BeanConfiguration.class);
 	  private StdUserRepository repository = context.getBean(StdUserRepository.class);
 	  private NewsRepository news_repo = context.getBean(NewsRepository.class);
-	  private CurrencyRepository currency_rate = context.getBean(CurrencyRepository.class);
+	 // private CurrencyRepository currency_rate = context.getBean(CurrencyRepository.class);
 	  private String db_uid;
 	  private Map mp;
 	  private String submit_u_id;
@@ -59,9 +59,9 @@ public class HelloController {
 				StdUser cc = (StdUser) obj;
 				if (cc.getUsername().equals(reader.getName()) && cc.getPassword().equals(DigestUtils.md5Hex(reader.getPass()))){
 					//System.out.println(reader.getName() + cc.getUsername() );
-					if(cc.getAdmin()==true ){
+					if(cc.isAdministrator()==true ){
 						ModelAndView amv = new ModelAndView("news_post", "command", new News_post());
-						db_uid = String.valueOf(cc.getId());
+						db_uid = String.valueOf(cc.getUser_id());
 						amv.addObject("currency_type", cc.getCurrency());
 						amv.addObject("session_u_id", db_uid);
 						return amv;//post view
@@ -91,6 +91,7 @@ public class HelloController {
 			   mp = model.asMap();
 			   submit_u_id = (String) mp.get("session_u_id");
 			   news_repo.save(new News(submit_u_id, np.getTitle(),np.getBody(),np.getPrice(),(new Timestamp(date.getTime()))));
+			   repository.save(new StdUser("John", "Smith", "johnsmith@gmail.com", "jsmith", "abc123", false, "USD"));
                session.invalidate();
 		   }catch(Exception e){
 			   
