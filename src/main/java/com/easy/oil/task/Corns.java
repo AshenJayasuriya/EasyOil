@@ -27,6 +27,7 @@ public class Corns {
 		   Currency cc = currency_change.findOne(1);
 		   cc.setUsd_value(k);
 		   currency_change.save(cc);
+		   //currency_change.
 	   }
 
 }
