@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 @Entity
 @Table(name = "StdUser")
 public class StdUser implements Serializable {
@@ -36,7 +38,7 @@ public class StdUser implements Serializable {
 		this.last_name = last_name;
 		this.username = username;
 		this.e_mail = e_mail;
-		this.password = password;
+		this.password = DigestUtils.md5Hex(password);
 		this.administrator = administrator;
 		this.currency = currency;
 	}
@@ -90,7 +92,7 @@ public class StdUser implements Serializable {
 	}
 	
 	public void setPassword(String password) {
-		this.password = password;
+		this.password = DigestUtils.md5Hex(password);
 	}
 	
 	public boolean isAdministrator() {

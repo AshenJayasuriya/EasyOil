@@ -73,12 +73,32 @@ public class HelloController {
 						ModelAndView r_model = new ModelAndView("news_view");
 						r_model.addObject("currency_type", cc.getCurrency());
 						r_model.addObject("user_name", cc.getUsername());
-						Update_rates();
-						/*r_model.addObject("msg", Ne);
-						 * 
-						 * news head line content  / author must add 
-						 * 
-						 */
+						
+						
+						News lastPosted = null;
+						Timestamp last;
+						News lastPrevious;
+						Timestamp previous;
+						Iterable<News> newsList = news_repo.findAll();
+						int i = 0;
+						for (News news : newsList) {
+							if(i<1)
+								lastPosted = news;
+							else{
+								lastPrevious = lastPosted;
+								lastPosted = news;
+								previous = lastPrevious.getTimestamp();
+								last = lastPosted.getTimestamp();
+								if(last.before(previous)){
+									lastPosted = lastPrevious;
+									lastPrevious = news;
+								}									
+							}
+						}
+						r_model.addObject("headline", lastPosted.getHeadline());
+						r_model.addObject("content", lastPosted.getContent());
+						
+						
 						return r_model;
 					}								
 				}				
@@ -96,7 +116,7 @@ public class HelloController {
 			   mp = model.asMap();
 			   submit_u_id = (String) mp.get("session_u_id");
 			   news_repo.save(new News(submit_u_id, np.getTitle(),np.getBody(),np.getPrice(),(new Timestamp(date.getTime()))));
-			   repository.save(new StdUser("John", "Smith", "johnsmith@gmail.com", "jsmith", "abc123", false, "USD"));
+			   //repository.save(new StdUser("John", "Smith","jsmith","johnsmith@gmail.com", "abc123", false, "USD"));
                session.invalidate();
 		   }catch(Exception e){
 			   
@@ -107,14 +127,14 @@ public class HelloController {
 		   return new ModelAndView("thank_you");
 		   //return "0k";
 	   }
-	   
+	 /*  
 	   private void Update_rates(){
 		   //currency_rate.
 		   int count =  (int) currency_rate.count();
 		   Currency cc = currency_rate.findOne(1);
 		   cc.setUsd_value(count);
 		   currency_rate.save(cc);
-	   }
+	   }*/
 	   
 //after write pass word and 
 }
