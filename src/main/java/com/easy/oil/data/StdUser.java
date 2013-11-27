@@ -27,12 +27,12 @@ public class StdUser implements Serializable {
 	private String e_mail;
 	private String password;
 	private boolean administrator;
-	private String currency;
+	private int currency;
 	
 	
 	public StdUser(String first_name, String last_name, String username,
 			String e_mail, String password, boolean administrator,
-			String currency) {
+			int currency) {
 		super();
 		this.first_name = first_name;
 		this.last_name = last_name;
@@ -103,11 +103,11 @@ public class StdUser implements Serializable {
 		this.administrator = administrator;
 	}
 	
-	public String getCurrency() {
+	public int getCurrency() {
 		return currency;
 	}
 	
-	public void setCurrency(String currency) {
+	public void setCurrency(int currency) {
 		this.currency = currency;
 	}
 	
