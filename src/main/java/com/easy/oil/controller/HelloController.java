@@ -92,8 +92,8 @@ public class HelloController {
 					r_model.addObject("headline", lastPosted.getHeadline());
 					r_model.addObject("content", lastPosted.getContent());
 					String conv_cost = convertvalue(cc.getCurrency(),
-							Long.parseLong(lastPosted.getUser_id()),
-							lastPosted.getCost());
+					Long.parseLong(lastPosted.getUser_id()),
+					lastPosted.getCost());
 					r_model.addObject("cost", conv_cost);
 					return r_model;
 				}
@@ -159,13 +159,10 @@ public class HelloController {
 	}
 
 	private String get_user_currency_name(int currency_id) {
-		//int currency_id = repository.findOne(user_id).getCurrency();
 		return currency_rate.findOne(currency_id).getType();
 	}
 
 	private int get_user_currency_id(long user_id) {
-		int currency_id = repository.findOne(user_id).getCurrency();
-		// return currency_rate.findOne(currency_id).getType();
-		return currency_id;
+		return repository.findOne(user_id).getCurrency();
 	}
 }

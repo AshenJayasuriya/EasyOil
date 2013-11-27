@@ -14,7 +14,11 @@
 
 <body>
 
+<<<<<<< HEAD
 <h2>Welcome to Easy Oil Corporation User Page</h2>
+=======
+<h2 style="margin-left: 400px">Welcome to Easy Oil Corporation User Page</h2>
+>>>>>>> upstream/master
 
 <%
    Date date = new Date();
@@ -26,8 +30,7 @@
 
    <table>
     <tr>
-        <td>You are Welcome</td>
-        <td>${name}</td>
+        <td> <h3>Welcome, &nbsp; &nbsp; <h3>${user_name}</h3> </td>
     </tr>
  
 </table>  
@@ -35,17 +38,31 @@
 		<table align="left">
 			<tr> <br> <br>  </tr>
 			
+			<tr>
+				<td><p>${headline}</p></td>
+			</tr>
+		<tr></tr>
+			<tr>
+				<td><label>${content}</label></td>
+			</tr>
+			
 			
 			<tr>
                             <th colspan="2"> 
+<<<<<<< HEAD
                                 <h2>Todays Price is </h2>
                                 <h2> ${currency_type} &nbsp;&nbsp; ${cost}  </h2>  
+=======
+                                <h3>Todays Price of a Crude Oil Barrel <h2>
+                                <h3> ${currency_type} &nbsp;&nbsp; ${cost}  </h3>  
+>>>>>>> upstream/master
                             </th>
 			</tr>
 			
 		</table>
 		</div>
 		
+<<<<<<< HEAD
 		<div class ="img">
 		
 		</div>
@@ -53,5 +70,7 @@
 		
 	
 		
+=======
+>>>>>>> upstream/master
 	</body>
 </html>
