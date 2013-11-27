@@ -5,6 +5,7 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.codec.digest.DigestUtils;
+import org.hibernate.mapping.List;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -125,9 +126,9 @@ public class HelloController {
 	}
 
 	private News getLatestNews() {
-		News last  = news_repo.latest();
-		/*News lastPosted = null;
-		Timestamp last;
+		//List last  = (List) news_repo.latest();
+		News lastPosted = news_repo.latest();
+		/*Timestamp last;
 		News lastPrevious;
 		Timestamp previous;
 		Iterable<News> newsList = news_repo.findAll();
@@ -146,7 +147,8 @@ public class HelloController {
 				}
 			}
 		}*/
-		return last;
+		//News nn = (News)last;
+		return lastPosted;
 	}
 
 	private double convertvalue(int user_currency_id, long adnim_id, double cost) {
