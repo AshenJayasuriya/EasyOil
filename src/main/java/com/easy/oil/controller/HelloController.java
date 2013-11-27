@@ -5,21 +5,16 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.codec.digest.DigestUtils;
-import org.hibernate.mapping.List;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.easy.oil.data.Currency;
 import com.easy.oil.data.CurrencyRepository;
 
 //import com.easy.oil.data.CurrencyRepository;
