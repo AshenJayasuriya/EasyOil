@@ -91,7 +91,7 @@ public class HelloController {
 
 					r_model.addObject("headline", lastPosted.getHeadline());
 					r_model.addObject("content", lastPosted.getContent());
-					String conv_cost = convertvalue(cc.getCurrency(),
+					double conv_cost = convertvalue(cc.getCurrency(),
 							Long.parseLong(lastPosted.getUser_id()),
 							lastPosted.getCost());
 					r_model.addObject("cost", conv_cost);
@@ -125,7 +125,8 @@ public class HelloController {
 	}
 
 	private News getLatestNews() {
-		News lastPosted = null;
+		News last  = news_repo.latest();
+		/*News lastPosted = null;
 		Timestamp last;
 		News lastPrevious;
 		Timestamp previous;
@@ -144,18 +145,17 @@ public class HelloController {
 					lastPrevious = news;
 				}
 			}
-		}
-		return lastPosted;
+		}*/
+		return last;
 	}
 
-	private String convertvalue(int user_currency_id, long adnim_id, double cost) {
-		// String admin_currency = repository.findOne(adnim_id).getCurrency();
+	private double convertvalue(int user_currency_id, long adnim_id, double cost) {
 		double one_usd_admin = currency_rate.findOne(
 				get_user_currency_id(adnim_id)).getUsd_value();
 		double one_usd_user = currency_rate.findOne(user_currency_id)
 				.getUsd_value();
 		double convert_value = (cost / one_usd_admin) * one_usd_user;
-		return String.valueOf(convert_value);
+		return convert_value;
 	}
 
 	private String get_user_currency_name(int currency_id) {
