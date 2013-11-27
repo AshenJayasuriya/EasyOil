@@ -57,6 +57,7 @@ public class HelloController {
 																				// =
 																				// "command"
 		nlog.addObject("session_u_id", "not_allow");
+		
 		return new ModelAndView("login", "command", new Reader()); // model name
 																	// =
 																	// "command"
@@ -67,6 +68,8 @@ public class HelloController {
 	public ModelAndView logUser(Reader reader) {
 		// DB check must goes under here
 		// repository.fi
+		ModelAndView returnModel = null;
+		
 		Iterable<StdUser> users = repository.findAll();
 		for (Object obj : users) {
 			StdUser cc = (StdUser) obj;
@@ -75,32 +78,35 @@ public class HelloController {
 							DigestUtils.md5Hex(reader.getPass()))) {
 				// System.out.println(reader.getName() + cc.getUsername() );
 				if (cc.isAdministrator() == true) {
-					ModelAndView amv = new ModelAndView("news_post", "command",
+					returnModel = new ModelAndView("news_post", "command",
 							new News_post());
 					db_uid = String.valueOf(cc.getUser_id());
-					amv.addObject("currency_type",
+					returnModel.addObject("currency_type",
 					get_user_currency_name(cc.getCurrency()));
-					amv.addObject("session_u_id", db_uid);
-					return amv;// post view
+					returnModel.addObject("session_u_id", db_uid);
+					return returnModel;// post view
 				} else {
-					ModelAndView r_model = new ModelAndView("news_view");
+					returnModel = new ModelAndView("news_view");
 					News lastPosted = getLatestNews();
 
-					r_model.addObject("currency_type", get_user_currency_name(cc.getCurrency()));
-					r_model.addObject("user_name", cc.getUsername());
+					returnModel.addObject("currency_type", get_user_currency_name(cc.getCurrency()));
+					returnModel.addObject("user_name", cc.getUsername());
 
-					r_model.addObject("headline", lastPosted.getHeadline());
-					r_model.addObject("content", lastPosted.getContent());
+					returnModel.addObject("headline", lastPosted.getHeadline());
+					returnModel.addObject("content", lastPosted.getContent());
 					String conv_cost = convertvalue(cc.getCurrency(),
-					Long.parseLong(lastPosted.getUser_id()),
-					lastPosted.getCost());
-					r_model.addObject("cost", conv_cost);
-					return r_model;
+							Long.parseLong(lastPosted.getUser_id()),
+							lastPosted.getCost());
+					returnModel.addObject("cost", conv_cost);
 				}
+			}
+			else{
+				returnModel = new ModelAndView("login", "command", new Reader());
+				returnModel.addObject("login_error","<label>Your password or username is incorrect</label>");
 			}
 		}
 		// if not in db return user login (with error)
-		return new ModelAndView("login", "command", new Reader());
+		return returnModel;
 	}
 
 	// commeting new news

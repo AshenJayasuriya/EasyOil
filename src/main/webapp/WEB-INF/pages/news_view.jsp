@@ -33,21 +33,25 @@
 		<table align="left">
 		
 			<tr> <br> <br>  </tr>
+			<tr>
+
+        <td><p>${headline}</p></td>
+
+    </tr>
+
+    <tr></tr>
+
+     <tr>
+        <td><label>${content}</label></td>
+   </tr>
+			<tr><tr>
+			
 			
 			<tr>
-				<td><p>${headline}</p></td>
-			</tr>
-		<tr></tr>
-			<tr>
-				<td><label>${content}</label></td>
-			</tr>
-			
-			
-			<tr>
-                            <th colspan="2"> 
-                                <h3>Todays Price of a Crude Oil Barrel <h2>
-                                <h3> ${currency_type} &nbsp;&nbsp; ${cost}  </h3>  
-                            </th>
+                 <th colspan="2"> 
+                      <h3>Todays Price of a Crude Oil Barrel <h2>
+                      <h3> ${currency_type} &nbsp;&nbsp; ${cost}  </h3>  
+                 </th>
 			</tr>
 			
 		</table>

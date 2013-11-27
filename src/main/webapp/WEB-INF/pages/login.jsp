@@ -44,8 +44,13 @@
     <tr>
     	<br>
     </tr>
+    
     <tr>
-    	<td></td>
+    	<td colspan="2"><h5>${login_error}</h5></td>
+    </tr>
+    
+    <tr>
+    	
     	
     	
         <td colspan="2">
