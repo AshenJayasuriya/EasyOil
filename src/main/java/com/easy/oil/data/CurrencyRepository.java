@@ -1,13 +1,17 @@
 package com.easy.oil.data;
 
 import org.hibernate.mapping.List;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional(readOnly=true)
 public interface CurrencyRepository extends CrudRepository<Currency, Integer>{	
-	List findByType(String type);
-	//Currency Usd_value();
-	@Query("SELECT n from Currency n JOIN n.key k WITH k.clientId = ?1 and k.evalDate = ?2 "
-            + "WHERE n.parent is null and n.isSoftDeleted = false ")
-    List find(String clientId);
+	List findByType(String type);//find by type
+		
+	@Modifying //updating
+	@Query("UPDATE Currency c SET c.usd_value = ?1 " +
+			"WHERE c.id = ?2 ")
+	Integer Update(double value, int id);
 }

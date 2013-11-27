@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 25, 2013 at 09:58 AM
+-- Generation Time: Nov 27, 2013 at 09:11 AM
 -- Server version: 5.5.34-0ubuntu0.13.04.1
 -- PHP Version: 5.4.9-4ubuntu2.3
 
@@ -25,6 +25,27 @@ USE `easy_fuel`;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `Currency`
+--
+
+CREATE TABLE IF NOT EXISTS `Currency` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `type` varchar(10) NOT NULL,
+  `usd_value` double NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `Currency`
+--
+
+INSERT INTO `Currency` (`id`, `name`, `type`, `usd_value`) VALUES
+(1, 'Sri Lanka Rupee', 'LKR', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `News`
 --
 
@@ -37,14 +58,7 @@ CREATE TABLE IF NOT EXISTS `News` (
   `user_id` varchar(255) DEFAULT NULL,
   `timestmp` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `News`
---
-
-INSERT INTO `News` (`id`, `content`, `cost`, `date`, `headline`, `user_id`, `timestmp`) VALUES
-(1, 'go go not goyt ', '10222222', NULL, 'first newa again ', '1', '3913-11-10 10:10:10');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 

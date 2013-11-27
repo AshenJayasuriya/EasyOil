@@ -1,4 +1,6 @@
 package com.easy.oil.task;
+import javassist.bytecode.ConstantAttribute;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -11,9 +13,8 @@ public class Corns {
 	//dependency injection
 	private AbstractApplicationContext context = new AnnotationConfigApplicationContext(BeanConfiguration.class);
 	private CurrencyRepository currency_change = context.getBean(CurrencyRepository.class);
-	
 	//test
-	private int  k = 0;
+	private double  k = 0;
 	@Scheduled(cron="*/10 * * * * ?")//10 seconds
 	private  void ServiceMethod()
 	{
@@ -21,13 +22,21 @@ public class Corns {
 		k = k+1;		
 	}
 	
-	private void Update_rates(int k){
+	private void Update_rates(double k){
 		   //currency_rate.
 		   int count =  (int) currency_change.count();
-		   Currency cc = currency_change.findOne(1);
-		   cc.setUsd_value(k);
-		   currency_change.save(cc);
-		   //currency_change.
+		  for (int i = 1 ; i <= count ; i++){			   
+			   Currency change = currency_change.findOne(i);
+			   String type = change.getType();
+			  /*
+			   * web service goes here 
+			   * send currency type from currency object
+			   * get value of 1 USD according to type 
+			   *commit the new value to db
+			   * 
+			   */
+			   int kkk = currency_change.Update(k,i);
+		   }
 	   }
 
 }
