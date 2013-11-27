@@ -29,8 +29,6 @@ import com.easy.oil.data.StdUser;
 import com.easy.oil.data.BeanConfiguration;
 import com.easy.oil.data.News;
 
-import com.easy.oil.task.Corns;
-
 import java.sql.Timestamp;
 import java.util.Date;
 
