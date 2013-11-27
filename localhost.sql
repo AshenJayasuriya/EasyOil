@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 27, 2013 at 09:11 AM
+-- Generation Time: Nov 27, 2013 at 12:38 PM
 -- Server version: 5.5.34-0ubuntu0.13.04.1
 -- PHP Version: 5.4.9-4ubuntu2.3
 
@@ -34,14 +34,17 @@ CREATE TABLE IF NOT EXISTS `Currency` (
   `type` varchar(10) NOT NULL,
   `usd_value` double NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `Currency`
 --
 
 INSERT INTO `Currency` (`id`, `name`, `type`, `usd_value`) VALUES
-(1, 'Sri Lanka Rupee', 'LKR', 1);
+(1, 'Sri Lanka Rupee', 'LKR', 131),
+(2, 'U.S. Dollar', 'USD', 1),
+(3, 'Omani Rial', 'OMR', 0.35),
+(4, 'Euro', 'EUR', 0.74);
 
 -- --------------------------------------------------------
 
@@ -52,13 +55,20 @@ INSERT INTO `Currency` (`id`, `name`, `type`, `usd_value`) VALUES
 CREATE TABLE IF NOT EXISTS `News` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `content` varchar(255) DEFAULT NULL,
-  `cost` varchar(255) DEFAULT NULL,
+  `cost` double NOT NULL,
   `date` varchar(255) DEFAULT NULL,
   `headline` varchar(255) DEFAULT NULL,
   `user_id` varchar(255) DEFAULT NULL,
   `timestmp` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `News`
+--
+
+INSERT INTO `News` (`id`, `content`, `cost`, `date`, `headline`, `user_id`, `timestmp`) VALUES
+(1, 'test news', 1000, NULL, 'news1', '1', '2013-11-27 12:27:44');
 
 -- --------------------------------------------------------
 
@@ -88,8 +98,8 @@ CREATE TABLE IF NOT EXISTS `StdUser` (
 
 INSERT INTO `StdUser` (`user_id`, `first_name`, `last_name`, `e_mail`, `username`, `password`, `administrator`, `currency`) VALUES
 (1, 'Amal', 'Gunadasa', 'Amal@gmail.com', 'asd', '202cb962ac59075b964b07152d234b70', 1, 'USD'),
-(2, 'Blan', 'Kumara', 'Kumara@gmail.com', 'qwe', 'd81f9c1be2e08964bf9f24b15f0e4900', 1, 'RS'),
-(3, 'kasun', 'kumara', 'kumara@gmail.com', 'qq', '6512bd43d9caa6e02c990b0a82652dca', 0, 'Rs');
+(2, 'Blan', 'Kumara', 'Kumara@gmail.com', 'qwe', 'd81f9c1be2e08964bf9f24b15f0e4900', 1, 'LKR'),
+(3, 'kasun', 'kumara', 'kumara@gmail.com', 'qq', '6512bd43d9caa6e02c990b0a82652dca', 0, 'LKR');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

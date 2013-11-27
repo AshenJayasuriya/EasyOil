@@ -24,7 +24,7 @@ public class Corns {
 	
 	private void Update_rates(double k){
 		   //currency_rate.
-		   int count =  (int) currency_change.count();
+		  int count =  (int) currency_change.count();
 		  for (int i = 1 ; i <= count ; i++){			   
 			   Currency change = currency_change.findOne(i);
 			   String type = change.getType();
@@ -35,7 +35,7 @@ public class Corns {
 			   *commit the new value to db
 			   * 
 			   */
-			   int kkk = currency_change.Update(k,i);
+			  // int return_values = currency_change.Update(k,i);
 		   }
 	   }
 

@@ -75,13 +75,13 @@ public class HelloController {
 			ModelAndView r_model = new ModelAndView("news_view");
                         News lastPosted = getLatestNews();
                                              
-			r_model.addObject("currency_type", cc.getCurrency());
-			r_model.addObject("user_name", cc.getUsername());
+                        r_model.addObject("currency_type", cc.getCurrency());
+                        r_model.addObject("user_name", cc.getUsername());
 						                                                
-			r_model.addObject("headline", lastPosted.getHeadline());
-			r_model.addObject("content", lastPosted.getContent());
-                        r_model.addObject("cost", lastPosted.getCost());
-						
+                        r_model.addObject("headline", lastPosted.getHeadline());
+                        r_model.addObject("content", lastPosted.getContent());
+                        String conv_cost = convertvalue(cc.getCurrency(), Long.parseLong(lastPosted.getUser_id()),lastPosted.getCost());
+                        r_model.addObject("cost", conv_cost);
                         return r_model;
                     }								
                 }				
@@ -131,5 +131,13 @@ public class HelloController {
             }
         }
         return lastPosted;
+    }
+    
+    private String convertvalue(String user_currency,long adnim_id,double cost){
+    	String admin_currency = repository.findOne(adnim_id).getCurrency();
+    	double one_usd_admin  = currency_rate.findByType(admin_currency).getUsd_value();
+    	double one_usd_user   = currency_rate.findByType(user_currency).getUsd_value();
+    	double convert_value = (cost/one_usd_admin) * one_usd_user;
+    	return String.valueOf(convert_value);
     }
 }

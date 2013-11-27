@@ -15,10 +15,10 @@ public class News implements Serializable {
 	private String user_id;
 	private String headline;
 	private String content;
-	private String cost;
+	private double cost;
 	private Timestamp timestmp;
 	
-	public News(String user_id,String headline,String content,String cost,Timestamp timestmp){
+	public News(String user_id,String headline,String content,double cost,Timestamp timestmp){
 		super();
 		this.user_id =  user_id;
 		this.headline = headline;
@@ -59,11 +59,11 @@ public class News implements Serializable {
 		this.content = content;
 	}
 
-	public String getCost() {
+	public double getCost() {
 		return cost;
 	}
 
-	public void setCost(String cost) {
+	public void setCost(double cost) {
 		this.cost = cost;
 	}
 

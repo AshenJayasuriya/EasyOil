@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Transactional(readOnly=true)
 public interface CurrencyRepository extends CrudRepository<Currency, Integer>{	
-	List findByType(String type);//find by type
+	Currency findByType(String type);//find by type
 		
 	@Modifying //updating
 	@Query("UPDATE Currency c SET c.usd_value = ?1 " +

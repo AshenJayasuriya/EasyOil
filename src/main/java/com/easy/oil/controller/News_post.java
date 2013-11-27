@@ -3,7 +3,7 @@ package com.easy.oil.controller;
 public class News_post {
 	private String title;
 	private String body;
-	private String price;
+	private double price;
 	private String user_id;
 	
 	public News_post(String user_id){
@@ -27,7 +27,7 @@ public class News_post {
 	}
 	
 
-	public void setPrice(String price){
+	public void setPrice(double price){
 		this.price = price;
 	}
 	
@@ -40,7 +40,7 @@ public class News_post {
 	}
 	
 	
-	public String getPrice(){
+	public double getPrice(){
 		return price;
 	}
 }
