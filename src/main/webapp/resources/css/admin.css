@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+body{
+background-image: url('../images/birds-and-leaves-on-yellow-background.jpg');
+}
+
+h2{
+	margin-left:450px;
+}
+
+h3{
+	margin-right: 50px;
+}
+
+p{
+	margin-left: 50px;
+}
+
+.actionbox{
+	margin-right: 550px; margin-top: 50px;
+}
