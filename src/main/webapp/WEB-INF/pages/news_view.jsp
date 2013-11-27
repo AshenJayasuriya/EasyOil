@@ -34,13 +34,13 @@
 		
 			<tr> <br> <br>  </tr>
 			
-			<tr></tr>
+			<tr><tr>
 			
 			
 			<tr>
                             <th colspan="2"> 
-                                <h3>Todays Price is <h2>
-                                <h2> ${currency_type} &nbsp;&nbsp; ${cost}  </h2>  
+                                <h3>Todays Price of a Crude Oil Barrel <h2>
+                                <h3> ${currency_type} &nbsp;&nbsp; ${cost}  </h3>  
                             </th>
 			</tr>
 			
