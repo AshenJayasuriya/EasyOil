@@ -6,7 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.easy.oil.data.News;
 
-@Transactional(readOnly=true)
+//@Transactional(readOnly=true)
 public interface NewsRepository extends CrudRepository<News, Long>{
 	
 	@Query("SELECT n FROM News n WHERE n.timestmp = (SELECT max(n.timestmp) FROM News n)")
