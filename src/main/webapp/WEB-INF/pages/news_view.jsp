@@ -14,7 +14,7 @@
 
 <body style="background-image: url('http://www.freefever.com/stock/birds-and-leaves-on-yellow-background.jpg');">
 
-<h2 style="margin-left: 400px">Welcome to Easy Oil Coparation User Page</h2>
+<h2 style="margin-left: 400px">Welcome to Easy Oil Corporation User Page</h2>
 
 <%
    Date date = new Date();
@@ -26,8 +26,7 @@
 
    <table>
     <tr>
-        <td>You are Welcome</td>
-        <td>${name}</td>
+        <td> <h4>You are Welcome &nbsp; &nbsp; <h3>${user_name}</h3> </h4></td>
     </tr>
  
 </table>  
@@ -44,13 +43,6 @@
 			</tr>
 			
 		</table>
-		
-		
-		<div id="msg">
-		
-		<% out.println("Massages can show here... "); %>>
-		
-		</div>
 		
 	</body>
 </html>
