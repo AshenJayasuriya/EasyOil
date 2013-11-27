@@ -5,16 +5,16 @@
 <html>
 <head>
 	<!-- adding css and js -->
-	<link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
+	<link href="<c:url value="/resources/css/user.css" />" rel="stylesheet">
 	<script src="<c:url value="/resources/js/jquery2.0.js" />"></script>
 	<script src="<c:url value="/resources/js/main.js" />"></script>
 	
     <title>Easy oil</title>
 </head>
 
-<body style="background-image: url('http://www.freefever.com/stock/birds-and-leaves-on-yellow-background.jpg');">
+<body>
 
-<h2 style="margin-left: 400px">Welcome to Easy Oil Coparation User Page</h2>
+<h2>Welcome to Easy Oil Corporation User Page</h2>
 
 <%
    Date date = new Date();
@@ -31,26 +31,27 @@
     </tr>
  
 </table>  
+<div class ="main1">
 		<table align="left">
-		
 			<tr> <br> <br>  </tr>
 			
 			
 			<tr>
                             <th colspan="2"> 
-                                <h3>Todays Price is <h2>
+                                <h2>Todays Price is </h2>
                                 <h2> ${currency_type} &nbsp;&nbsp; ${cost}  </h2>  
                             </th>
 			</tr>
 			
 		</table>
+		</div>
 		
-		
-		<div id="msg">
-		
-		<% out.println("Massages can show here... "); %>>
+		<div class ="img">
 		
 		</div>
+		
+		
+	
 		
 	</body>
 </html>
