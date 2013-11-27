@@ -1,5 +1,7 @@
+<%@ page import="java.io.*,java.util.*, javax.servlet.*" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <html>
 <head>
 	<!-- adding css and js -->
@@ -9,39 +11,44 @@
 	
     <title>Easy oil</title>
 </head>
+
 <body style="background-image: url('http://www.freefever.com/stock/birds-and-leaves-on-yellow-background.jpg');">
 
-<h2 style="margin-left: 450px">Welcome to Easy Oil </h2>
+<h2 style="margin-left: 400px">Welcome to Easy Oil Coparation User Page</h2>
+
+<%
+   Date date = new Date();
+   out.print( "<h3>" +date.toString()+"</h3>");
+%>
+
 <hr></hr>
+<hr></hr>
+
    <table>
     <tr>
-        <td>Name</td>
+        <td>You are Welcome</td>
         <td>${name}</td>
     </tr>
-    <tr>
-        <td>Password</td>
-        <td>${password}</td>
-    </tr>
-    
-    <tr>
-        <td> </td>
-        <td> <br></td>
-    </tr>
-
-</table> 
-<textarea rows="10" cols="45" style="FONT-SIZE: x-large; width : 517px; height : 112px;">Add News here</textarea> 
-		<table align="center">
+ 
+</table>  
+		<table align="left">
+		
 			<tr> <br> <br>  </tr>
+			
+			
 			<tr>
 				<td>Price </td>
 				<td>${ammount}</td>
 			</tr>
+			
 		</table>
 		
-		<h1>Colour is Green</h1>
- 
-		<h2> Java script Test</h2>
-		<div id="msg"></div>
+		
+		<div id="msg">
+		
+		<% out.println("Massages can show here... "); %>>
+		
+		</div>
 		
 	</body>
 </html>
