@@ -67,11 +67,11 @@ public class News implements Serializable {
 		this.cost = cost;
 	}
 
-	public Timestamp getDate() {
+	public Timestamp getTimestamp() {
 		return timestmp;
 	}
 
-	public void setDate(Timestamp timestmp) {
+	public void setTimestamp(Timestamp timestmp) {
 		this.timestmp = timestmp;
 	}
 

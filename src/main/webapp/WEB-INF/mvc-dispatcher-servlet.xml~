@@ -24,12 +24,10 @@
             value="org.springframework.web.servlet.view.JstlView" />
         <property name="prefix" value="/WEB-INF/pages/" />
         <property name="suffix" value=".jsp" />
-    </bean>
-
-	<task:annotation-driven />
-    <bean id="Cron" class="com.easy.oil.task.Corns"></bean>	
+    </bean>	
     
     <mvc:annotation-driven/>
+
 	<mvc:resources mapping="/resources/**" location="/resources/" />
     
     

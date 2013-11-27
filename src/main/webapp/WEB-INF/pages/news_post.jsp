@@ -45,7 +45,7 @@
 				
 		<tr>
 			<td> Price : </td>
-			<td> <form:input path="price"/>
+			<td> ${currency_type} <form:input path="price"/>
 		</tr>
 		
 		<tr>

@@ -1,14 +1,23 @@
 package com.easy.oil.data;
 
 import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.apache.commons.codec.digest.DigestUtils;
 
 @Entity
+@Table(name = "StdUser")
 public class StdUser implements Serializable {
 	
+	/**
+	 * 
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long user_id;
@@ -20,89 +29,95 @@ public class StdUser implements Serializable {
 	private boolean administrator;
 	private String currency;
 	
-        
-        public StdUser(String first_name, String last_name ,String e_mail , String password, boolean administrator, String currency) {
-		//super();
+	
+	public StdUser(String first_name, String last_name, String username,
+			String e_mail, String password, boolean administrator,
+			String currency) {
+		super();
 		this.first_name = first_name;
 		this.last_name = last_name;
+		this.username = username;
 		this.e_mail = e_mail;
-		this.password = password;
+		this.password = DigestUtils.md5Hex(password);
 		this.administrator = administrator;
 		this.currency = currency;
 	}
-
-	public StdUser() {
-
-	}
 	
-	public long getId() {
+	public StdUser() {
+		super();		
+	}
+
+	public long getUser_id() {
 		return user_id;
 	}
-
-	public String getFirstName() {
-		return first_name;
-	}
-
-	public void setFirstName(String f_name) {
-		this.first_name = f_name;
+	
+	public void setUser_id(long user_id) {
+		this.user_id = user_id;
 	}
 	
-	public String getLastName() {
+	public String getFirst_name() {
+		return first_name;
+	}
+	
+	public void setFirst_name(String first_name) {
+		this.first_name = first_name;
+	}
+	
+	public String getLast_name() {
 		return last_name;
 	}
-
-	public void setLastName(String l_name) {
-		this.last_name = l_name;
+	
+	public void setLast_name(String last_name) {
+		this.last_name = last_name;
 	}
-
+	
 	public String getUsername() {
 		return username;
 	}
-
+	
 	public void setUsername(String username) {
 		this.username = username;
 	}
 	
-	public String getEmail() {
+	public String getE_mail() {
 		return e_mail;
 	}
-
-	public void setEmail(String e_mail) {
+	
+	public void setE_mail(String e_mail) {
 		this.e_mail = e_mail;
 	}
 	
 	public String getPassword() {
 		return password;
 	}
-
+	
 	public void setPassword(String password) {
-		this.password = password;
+		this.password = DigestUtils.md5Hex(password);
 	}
 	
-	public boolean getAdmin() {
+	public boolean isAdministrator() {
 		return administrator;
 	}
-
-	public void setAdmmin(boolean administrator) {
+	
+	public void setAdministrator(boolean administrator) {
 		this.administrator = administrator;
 	}
 	
 	public String getCurrency() {
 		return currency;
 	}
-
+	
 	public void setCurrency(String currency) {
 		this.currency = currency;
 	}
-
+	
 	@Override
 	public String toString() {
-		return "User [id=" + user_id + ", first_name=" + first_name + ", last_name="
-				+ last_name + ", username=" + username + ", e_mail=" + e_mail
-				+ ", password=" + password + ", admin=" + administrator + ", currency="
-				+ currency + "]";
-	}
-
-
+		return "StdUser [user_id=" + user_id + ", first_name=" + first_name
+				+ ", last_name=" + last_name + ", username=" + username
+				+ ", e_mail=" + e_mail + ", password=" + password
+				+ ", administrator=" + administrator + ", currency=" + currency
+				+ "]";
+	}       
 
 }

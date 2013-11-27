@@ -37,8 +37,10 @@
 			
 			
 			<tr>
-				<td>Price </td>
-				<td>${ammount}</td>
+                            <th colspan="2"> 
+                                <h3>Todays Price is <h2>
+                                <h2> ${currency_type} &nbsp;&nbsp; ${cost}  </h2>  
+                            </th>
 			</tr>
 			
 		</table>
