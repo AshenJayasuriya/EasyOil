@@ -15,7 +15,7 @@ public class Corns {
 	private CurrencyRepository currency_change = context.getBean(CurrencyRepository.class);
 	//test
 	private double  k = 0;
-	@Scheduled(cron="*/10 * * * * ?")//10 seconds
+	@Scheduled(cron="*/10 * * * * ?")//set time delay in seconds
 	private  void ServiceMethod()
 	{
 		Update_rates(k);

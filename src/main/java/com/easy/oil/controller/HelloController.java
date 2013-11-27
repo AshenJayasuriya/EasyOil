@@ -5,6 +5,7 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.codec.digest.DigestUtils;
+import org.hibernate.mapping.List;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -91,21 +92,19 @@ public class HelloController {
 
 					returnModel.addObject("currency_type", get_user_currency_name(cc.getCurrency()));
 					returnModel.addObject("user_name", cc.getUsername());
-
 					returnModel.addObject("headline", lastPosted.getHeadline());
 					returnModel.addObject("content", lastPosted.getContent());
-					String conv_cost = convertvalue(cc.getCurrency(),
+					double conv_cost = convertvalue(cc.getCurrency(),
 							Long.parseLong(lastPosted.getUser_id()),
 							lastPosted.getCost());
 					returnModel.addObject("cost", conv_cost);
+					return returnModel;
 				}
-			}
-			else{
-				returnModel = new ModelAndView("login", "command", new Reader());
-				returnModel.addObject("login_error","<label>Your password or username is incorrect</label>");
 			}
 		}
 		// if not in db return user login (with error)
+		returnModel = new ModelAndView("login", "command", new Reader());
+		returnModel.addObject("login_error","<label>Your password or username is incorrect</label>");
 		return returnModel;
 	}
 
@@ -131,37 +130,17 @@ public class HelloController {
 	}
 
 	private News getLatestNews() {
-		News lastPosted = null;
-		Timestamp last;
-		News lastPrevious;
-		Timestamp previous;
-		Iterable<News> newsList = news_repo.findAll();
-		int i = 0;
-		for (News news : newsList) {
-			if (i < 1)
-				lastPosted = news;
-			else {
-				lastPrevious = lastPosted;
-				lastPosted = news;
-				previous = lastPrevious.getTimestamp();
-				last = lastPosted.getTimestamp();
-				if (last.before(previous)) {
-					lastPosted = lastPrevious;
-					lastPrevious = news;
-				}
-			}
-		}
+		News lastPosted = news_repo.latest();
 		return lastPosted;
 	}
 
-	private String convertvalue(int user_currency_id, long adnim_id, double cost) {
-		// String admin_currency = repository.findOne(adnim_id).getCurrency();
+	private double convertvalue(int user_currency_id, long adnim_id, double cost) {
 		double one_usd_admin = currency_rate.findOne(
 				get_user_currency_id(adnim_id)).getUsd_value();
 		double one_usd_user = currency_rate.findOne(user_currency_id)
 				.getUsd_value();
 		double convert_value = (cost / one_usd_admin) * one_usd_user;
-		return String.valueOf(convert_value);
+		return convert_value;
 	}
 
 	private String get_user_currency_name(int currency_id) {
