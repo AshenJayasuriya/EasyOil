@@ -92,8 +92,8 @@ public class HelloController {
 					r_model.addObject("headline", lastPosted.getHeadline());
 					r_model.addObject("content", lastPosted.getContent());
 					String conv_cost = convertvalue(cc.getCurrency(),
-							Long.parseLong(lastPosted.getUser_id()),
-							lastPosted.getCost());
+					Long.parseLong(lastPosted.getUser_id()),
+					lastPosted.getCost());
 					r_model.addObject("cost", conv_cost);
 					return r_model;
 				}

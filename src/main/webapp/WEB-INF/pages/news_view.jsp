@@ -26,7 +26,7 @@
 
    <table>
     <tr>
-        <td> <h4>You are Welcome &nbsp; &nbsp; <h3>${user_name}</h3> </h4></td>
+        <td> <h3>Welcome, &nbsp; &nbsp; <h3>${user_name}</h3> </td>
     </tr>
  
 </table>  
@@ -34,11 +34,19 @@
 		
 			<tr> <br> <br>  </tr>
 			
+			<tr>
+				<td><p>${headline}</p></td>
+			</tr>
+		<tr></tr>
+			<tr>
+				<td><label>${content}</label></td>
+			</tr>
+			
 			
 			<tr>
                             <th colspan="2"> 
-                                <h3>Todays Price is <h2>
-                                <h2> ${currency_type} &nbsp;&nbsp; ${cost}  </h2>  
+                                <h3>Todays Price of a Crude Oil Barrel <h2>
+                                <h3> ${currency_type} &nbsp;&nbsp; ${cost}  </h3>  
                             </th>
 			</tr>
 			
