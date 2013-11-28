@@ -32,7 +32,6 @@ import java.util.Date;
 public class HelloController {
 
 	// db connection propreties
-
 	private AbstractApplicationContext context = new AnnotationConfigApplicationContext(
 			BeanConfiguration.class);
 	private StdUserRepository repository = context
