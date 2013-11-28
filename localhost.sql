@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 28, 2013 at 12:35 PM
+-- Generation Time: Nov 28, 2013 at 01:46 PM
 -- Server version: 5.5.34-0ubuntu0.13.04.1
 -- PHP Version: 5.4.9-4ubuntu2.3
 
@@ -54,20 +54,20 @@ CREATE TABLE IF NOT EXISTS `News` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `content` varchar(255) DEFAULT NULL,
   `cost` double NOT NULL,
-  `date` varchar(255) DEFAULT NULL,
   `headline` varchar(255) DEFAULT NULL,
   `user_id` varchar(255) DEFAULT NULL,
   `timestmp` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `News`
 --
 
-INSERT INTO `News` (`id`, `content`, `cost`, `date`, `headline`, `user_id`, `timestmp`) VALUES
-(1, 'The owners of private buses plying between Colombo and Kalutara are engaged in a strike action.\n\nThey protest against the time table stipulated by the SLTB.\n\nThey have warned that buses plying between Kalutra – Aluthgama and Kalutara.', 1000, NULL, '"Kalutara Colombo private bus strike" ', '1', '2013-11-27 12:27:44'),
-(2, 'asdfsadfasdf', 120, NULL, 'asdfasdf', '1', '2013-11-28 12:26:06');
+INSERT INTO `News` (`id`, `content`, `cost`, `headline`, `user_id`, `timestmp`) VALUES
+(1, 'The owners of private buses plying between Colombo and Kalutara are engaged in a strike action.\n\nThey protest against the time table stipulated by the SLTB.\n\nThey have warned that buses plying between Kalutra – Aluthgama and Kalutara.', 1000, '"Kalutara Colombo private bus strike" ', '1', '2013-11-27 12:27:44'),
+(2, 'asdfsadfasdf', 120, 'asdfasdf', '1', '2013-11-28 12:26:06'),
+(3, 'asdasdxcbhkbjkhbv  gtxz  yufjmk rg  azer bcva  xcvtrhbr vc sbhs hfhfdgh', 120, 'sdas', '1', '2013-11-28 13:44:50');
 
 -- --------------------------------------------------------
 
@@ -90,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `StdUser` (
   UNIQUE KEY `user_Id` (`user_id`),
   KEY `username_2` (`username`),
   KEY `username_3` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `StdUser`
