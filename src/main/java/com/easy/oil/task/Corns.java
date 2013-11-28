@@ -12,7 +12,9 @@ import com.easy.oil.data.CurrencyRepository;
 import java.io.StringReader;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
+import org.springframework.ws.WebServiceMessageFactory;
 import org.springframework.ws.client.core.WebServiceTemplate;
+import org.springframework.ws.transport.WebServiceMessageSender;
 
 public class Corns {
 	//dependency injection
@@ -48,7 +50,7 @@ public class Corns {
 			+"<hs:Value>0</hs:Value>" 
 			+ "</hs:CurrencyRequest>";
 			/* * for normal user <hs:Value>0</hs:Value> (default  position)
-			  * to change the value of each currency, change the "Value" as admin
+			  * as admin ,for changing the value of each currency, change the "Value".
 			*/
 		    String wsdlUrl = "http://localhost:8080/spring-webservices-sample/endpoints/AccountDetailsService.wsdl";
 		    StreamSource requestMessage = new StreamSource(new StringReader(xmlRequest));
