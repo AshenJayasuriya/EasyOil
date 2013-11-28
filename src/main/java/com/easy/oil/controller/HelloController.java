@@ -2,6 +2,7 @@ package com.easy.oil.controller;
 
 import java.util.Map;
 
+import javax.persistence.EntityManager;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.codec.digest.DigestUtils;
@@ -37,7 +38,7 @@ import java.util.Date;
 public class HelloController {
 
 	// db connection propreties
-
+	private EntityManager em;
 	private AbstractApplicationContext context = new AnnotationConfigApplicationContext(
 			BeanConfiguration.class);
 	private StdUserRepository repository = context
@@ -88,7 +89,7 @@ public class HelloController {
 					return returnModel;// post view
 				} else {
 					returnModel = new ModelAndView("news_view");
-					News lastPosted = getLatestNews();
+					News lastPosted = news_repo.findLatest();
 
 					returnModel.addObject("currency_type", get_user_currency_name(cc.getCurrency()));
 					returnModel.addObject("user_name", cc.getUsername());
@@ -128,10 +129,13 @@ public class HelloController {
 		}
 		return new ModelAndView("thank_you");
 	}
-
-	private News getLatestNews() {
-		News lastPosted = news_repo.latest();
-		return lastPosted;
+	
+	public List getLastNews(int numOfNews){
+		List news  = (List) em.createQuery("SELECT n FROM News n ORDER BY n.timestmp DESC")
+				.setFirstResult(0)
+				.setMaxResults(numOfNews)
+				.getResultList();
+		return news;		
 	}
 
 	private double convertvalue(int user_currency_id, long adnim_id, double cost) {
