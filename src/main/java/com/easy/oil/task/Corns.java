@@ -8,6 +8,11 @@ import org.springframework.scheduling.annotation.Scheduled;
 import com.easy.oil.data.BeanConfiguration;
 import com.easy.oil.data.Currency;
 import com.easy.oil.data.CurrencyRepository;
+// for currency converter
+import java.io.StringReader;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
+import org.springframework.ws.client.core.WebServiceTemplate;
 
 public class Corns {
 	//dependency injection
@@ -36,6 +41,22 @@ public class Corns {
 			   * 
 			   */
 			  // int return_values = currency_change.Update(k,i);
+			
+			String xmlRequest = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+			+ "<hs:CurrencyRequest xmlns:hs=\http://com/blog/samples/webservices/accountservice\">"
+			+ "<hs:Currency>LKR</hs:Currency>" 
+			+"<hs:Value>0</hs:Value>" 
+			+ "</hs:CurrencyRequest>";
+			/* * for normal user <hs:Value>0</hs:Value> (default  position)
+			  * to change the value of each currency, change the "Value" as admin
+			*/
+		    String wsdlUrl = "http://localhost:8080/spring-webservices-sample/endpoints/AccountDetailsService.wsdl";
+		    StreamSource requestMessage = new StreamSource(new StringReader(xmlRequest));
+		    StreamResult responseMessage = new StreamResult(System.out);
+		    WebServiceTemplate template = new WebServiceTemplate();
+		    template.sendSourceAndReceiveToResult(wsdlUrl, requestMessage,
+			responseMessage);
+
 		   }
 	   }
 
