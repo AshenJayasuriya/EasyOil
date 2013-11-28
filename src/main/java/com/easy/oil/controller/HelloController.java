@@ -89,6 +89,10 @@ public class HelloController {
 				} else {
 					returnModel = new ModelAndView("news_view");
 					News lastPosted = getLatestNews();
+					if(lastPosted == null){
+						returnModel.addObject("No_news","<label>News can not be displayed at this moment</label>");
+						return returnModel;
+					}
 
 					returnModel.addObject("currency_type", get_user_currency_name(cc.getCurrency()));
 					returnModel.addObject("user_name", cc.getUsername());

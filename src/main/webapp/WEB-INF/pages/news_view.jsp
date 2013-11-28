@@ -31,7 +31,9 @@
         <td> <h3>Welcome, &nbsp; &nbsp; <h3>${user_name}</h3> </td>
     </tr>
  
-</table>  
+</table>
+
+<div> <h4>${No_news}</h4>    </div>  
 <div class ="main1">
 		<table align="left">
 			<tr> <br> <br>  </tr>
