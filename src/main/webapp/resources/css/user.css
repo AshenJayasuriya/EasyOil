@@ -1,19 +1,56 @@
 @CHARSET "UTF-8";
 
 body{
-background-image: url('../images/birds-and-leaves-on-yellow-background.jpg');
+	background-image: url('../images/spr_stock002_med.jpg');
+	background-attachment: fixed;
 }
 
 h2{
-margin-left: 400px;
+	margin-left: 30%;
+}
+
+h3{
+	
 }
 
 .main1{
-	margin-left: 10px;
-	float: left;
+	margin-left: 5%;
+
 }
 
 .img{
-	margin-left: 600px;margin-top: 125px; border: solid; width : 341px; height : 298px;
+	margin-left: 60% ;
+	margin-top: 50px; 
+	border: solid; 
+	width : 341px; 
+	height : 298px;
 	background-image: url('../images/fuel-efficiency.jpg');
+}
+
+.headline{
+	
+	margin-left: 32%;
+	border: solid;
+	width: 40%;
+	border-color: LightSalmon;
+	background-color: DarkSalmon;
+	text-align: center;
+}
+
+.content{
+	margin-left: 32%;
+	border: solid;
+	width: 40%;
+	border-color: LightSalmon;
+	background-color: Khaki;
+	text-align: center;
+}
+
+.val{
+	margin-left: 32%;
+	border: solid;
+	width: 40%;
+	border-color: LightSalmon;
+	background-color: LightSteelBlue;
+	text-align: center;
 }

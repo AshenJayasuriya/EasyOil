@@ -6,6 +6,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
 
 <!-- adding css and js -->
@@ -16,6 +17,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Easy Oil News</title>
 </head>
+
 <body>
 
 <h2 ><b>Easy Oil Administrators Page</b></h2>
@@ -29,6 +31,7 @@
 <hr></hr>
 
 <p>News Post</p>
+
 <div class = "actionbox">
 <form:form method="POST" action="/SpringMVC/news_posted">
 
@@ -59,7 +62,6 @@
 </div>
 
 <div class = "img">
-
 </div>
 
 </body>
