@@ -80,9 +80,6 @@ public class News implements Serializable {
 		return "News [user_id=" + user_id + ", headline=" + headline
 				+ ", content=" + content + ", cost=" + cost + ", timestamp=" + timestmp
 				+ "]";
-	}
-	
-	
-	
+	}	
 
 }

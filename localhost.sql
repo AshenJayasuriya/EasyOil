@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 27, 2013 at 02:44 PM
+-- Generation Time: Nov 28, 2013 at 01:46 PM
 -- Server version: 5.5.34-0ubuntu0.13.04.1
 -- PHP Version: 5.4.9-4ubuntu2.3
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `easy_fuel`
 --
-CREATE DATABASE `easy_fuel` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `easy_fuel`;
 
 -- --------------------------------------------------------
 
@@ -56,19 +54,20 @@ CREATE TABLE IF NOT EXISTS `News` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `content` varchar(255) DEFAULT NULL,
   `cost` double NOT NULL,
-  `date` varchar(255) DEFAULT NULL,
   `headline` varchar(255) DEFAULT NULL,
   `user_id` varchar(255) DEFAULT NULL,
   `timestmp` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `News`
 --
 
-INSERT INTO `News` (`id`, `content`, `cost`, `date`, `headline`, `user_id`, `timestmp`) VALUES
-(1, 'test news', 1000, NULL, 'news1', '1', '2013-11-27 12:27:44');
+INSERT INTO `News` (`id`, `content`, `cost`, `headline`, `user_id`, `timestmp`) VALUES
+(1, 'The owners of private buses plying between Colombo and Kalutara are engaged in a strike action.\n\nThey protest against the time table stipulated by the SLTB.\n\nThey have warned that buses plying between Kalutra – Aluthgama and Kalutara.', 1000, '"Kalutara Colombo private bus strike" ', '1', '2013-11-27 12:27:44'),
+(2, 'asdfsadfasdf', 120, 'asdfasdf', '1', '2013-11-28 12:26:06'),
+(3, 'asdasdxcbhkbjkhbv  gtxz  yufjmk rg  azer bcva  xcvtrhbr vc sbhs hfhfdgh', 120, 'sdas', '1', '2013-11-28 13:44:50');
 
 -- --------------------------------------------------------
 
@@ -85,21 +84,23 @@ CREATE TABLE IF NOT EXISTS `StdUser` (
   `password` varchar(50) NOT NULL,
   `administrator` tinyint(1) NOT NULL,
   `currency` varchar(5) NOT NULL,
+  `authorized` tinyint(1) NOT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `user_Id` (`user_id`),
   KEY `username_2` (`username`),
   KEY `username_3` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `StdUser`
 --
 
-INSERT INTO `StdUser` (`user_id`, `first_name`, `last_name`, `e_mail`, `username`, `password`, `administrator`, `currency`) VALUES
-(1, 'Amal', 'Gunadasa', 'Amal@gmail.com', 'asd', '202cb962ac59075b964b07152d234b70', 1, '2'),
-(2, 'Blan', 'Kumara', 'Kumara@gmail.com', 'qwe', 'd81f9c1be2e08964bf9f24b15f0e4900', 1, '1'),
-(3, 'kasun', 'kumara', 'kumara@gmail.com', 'qq', '6512bd43d9caa6e02c990b0a82652dca', 0, '1');
+INSERT INTO `StdUser` (`user_id`, `first_name`, `last_name`, `e_mail`, `username`, `password`, `administrator`, `currency`, `authorized`) VALUES
+(1, 'Amal', 'Gunadasa', 'Amal@gmail.com', 'asd', '202cb962ac59075b964b07152d234b70', 1, '2', 1),
+(2, 'Blan', 'Kumara', 'Kumara@gmail.com', 'qwe', 'd81f9c1be2e08964bf9f24b15f0e4900', 1, '1', 1),
+(3, 'kasun', 'kumara', 'kumara@gmail.com', 'qq', '6512bd43d9caa6e02c990b0a82652dca', 0, '1', 1),
+(4, 'John', 'Smith', 'johnsmith@gmail.com', 'jsmith', 'e99a18c428cb38d5f260853678922e03', 0, '1', 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

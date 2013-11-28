@@ -17,5 +17,11 @@ p{
 }
 
 .actionbox{
-	margin-right: 550px; margin-top: 50px;
+	margin-left:100px; margin-top: 50px;
+	float: left;
+}
+
+.img{
+	margin-left: 720px;margin-top: 10px; border: solid; width : 350px; height : 350px;
+	background-image: url('../images/oil350_528e671c5c72d.jpg');
 }

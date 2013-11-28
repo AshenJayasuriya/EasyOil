@@ -27,33 +27,29 @@ public class StdUser implements Serializable {
 	private String password;
 	private boolean administrator;
 	private int currency;
+	private boolean authorized;
 	
 	
+	
+	
+	public StdUser() {
+		super();
+	}
+
 	public StdUser(String first_name, String last_name, String username,
 			String e_mail, String password, boolean administrator,
-			int currency) {
+			int currency, boolean authorized) {
 		super();
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.username = username;
 		this.e_mail = e_mail;
-		this.password = DigestUtils.md5Hex(password);
+		this.password = password;
 		this.administrator = administrator;
 		this.currency = currency;
-	}
-	
-	public StdUser() {
-		super();		
+		this.authorized = authorized;
 	}
 
-	public long getUser_id() {
-		return user_id;
-	}
-	
-	public void setUser_id(long user_id) {
-		this.user_id = user_id;
-	}
-	
 	public String getFirst_name() {
 		return first_name;
 	}
@@ -85,13 +81,12 @@ public class StdUser implements Serializable {
 	public void setE_mail(String e_mail) {
 		this.e_mail = e_mail;
 	}
-	
 	public String getPassword() {
 		return password;
 	}
 	
 	public void setPassword(String password) {
-		this.password = DigestUtils.md5Hex(password);
+		this.password = password;
 	}
 	
 	public boolean isAdministrator() {
@@ -110,13 +105,25 @@ public class StdUser implements Serializable {
 		this.currency = currency;
 	}
 	
+	public boolean isAuthorized() {
+		return authorized;
+	}
+	
+	public void setAuthorized(boolean authorized) {
+		this.authorized = authorized;
+	}
+	
+	public long getUser_id() {
+		return user_id;
+	}
+	
 	@Override
 	public String toString() {
 		return "StdUser [user_id=" + user_id + ", first_name=" + first_name
 				+ ", last_name=" + last_name + ", username=" + username
 				+ ", e_mail=" + e_mail + ", password=" + password
 				+ ", administrator=" + administrator + ", currency=" + currency
-				+ "]";
-	}       
-
+				+ ", authorized=" + authorized + "]";
+	}	
+	
 }
