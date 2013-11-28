@@ -2,6 +2,7 @@ package com.easy.oil.controller;
 
 import java.util.Map;
 
+import javax.persistence.EntityManager;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.codec.digest.DigestUtils;
@@ -37,7 +38,7 @@ import java.util.Date;
 public class HelloController {
 
 	// db connection propreties
-
+	private EntityManager em;
 	private AbstractApplicationContext context = new AnnotationConfigApplicationContext(
 			BeanConfiguration.class);
 	private StdUserRepository repository = context
@@ -72,32 +73,39 @@ public class HelloController {
 		ModelAndView returnModel = null;
 		
 		Iterable<StdUser> users = repository.findAll();
+		
 		for (Object obj : users) {
 			StdUser cc = (StdUser) obj;
+			
 			if (cc.getUsername().equals(reader.getName())
-					&& cc.getPassword().equals(
-							DigestUtils.md5Hex(reader.getPass()))) {
-				// System.out.println(reader.getName() + cc.getUsername() );
+									&& 
+				cc.getPassword().equals(DigestUtils.md5Hex(reader.getPass()))) {
+				
 				if (cc.isAdministrator() == true) {
-					returnModel = new ModelAndView("news_post", "command",
-							new News_post());
-					db_uid = String.valueOf(cc.getUser_id());
-					returnModel.addObject("currency_type",
-					get_user_currency_name(cc.getCurrency()));
+					//Admin news post view
+					db_uid = String.valueOf(cc.getUser_id());					
+					
+					returnModel = new ModelAndView("news_post", "command",	new News_post());
+					returnModel.addObject("currency_type", get_user_currency_name(cc.getCurrency()));
 					returnModel.addObject("session_u_id", db_uid);
+					
 					return returnModel;// post view
+				
 				} else {
+					//News view, adding elements
 					returnModel = new ModelAndView("news_view");
-					News lastPosted = getLatestNews();
+					News lastPosted = news_repo.findLatest();
 
 					returnModel.addObject("currency_type", get_user_currency_name(cc.getCurrency()));
 					returnModel.addObject("user_name", cc.getUsername());
 					returnModel.addObject("headline", lastPosted.getHeadline());
 					returnModel.addObject("content", lastPosted.getContent());
+					
 					double conv_cost = convertvalue(cc.getCurrency(),
 							Long.parseLong(lastPosted.getUser_id()),
 							lastPosted.getCost());
 					returnModel.addObject("cost", conv_cost);
+					
 					return returnModel;
 				}
 			}
@@ -109,6 +117,7 @@ public class HelloController {
 	}
 
 	// commeting new news
+	
 	@RequestMapping(value = "/news_posted", method = RequestMethod.POST)
 	public ModelAndView postAdmin(News_post np, Model model, HttpSession session) {
 		date = new Date();
@@ -118,8 +127,7 @@ public class HelloController {
 			submit_u_id = (String) mp.get("session_u_id");
 			news_repo.save(new News(submit_u_id, np.getTitle(), np.getBody(),
 					np.getPrice(), (new Timestamp(date.getTime()))));
-			// repository.save(new StdUser("John",
-			// "Smith","jsmith","johnsmith@gmail.com", "abc123", false, "USD"));
+			 repository.save(new StdUser("John","Smith","jsmith","johnsmith@gmail.com", "abc123", false, 1, false));
 			session.invalidate();
 		} catch (Exception e) {
 
@@ -128,10 +136,13 @@ public class HelloController {
 		}
 		return new ModelAndView("thank_you");
 	}
-
-	private News getLatestNews() {
-		News lastPosted = news_repo.latest();
-		return lastPosted;
+	
+	private List getLastNews(int numOfNews){
+		List news  = (List) em.createQuery("SELECT n FROM News n ORDER BY n.timestmp DESC")
+				.setFirstResult(0)
+				.setMaxResults(numOfNews)
+				.getResultList();
+		return news;		
 	}
 
 	private double convertvalue(int user_currency_id, long adnim_id, double cost) {
