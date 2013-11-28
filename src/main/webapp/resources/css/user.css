@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+
+body{
+background-image: url('../images/birds-and-leaves-on-yellow-background.jpg');
+}
+
+h2{
+margin-left: 400px;
+}
+
+.main1{
+	margin-left: 10px;
+	float: left;
+}
+
+.img{
+	margin-left: 600px;margin-top: 125px; border: solid; width : 341px; height : 298px;
+	background-image: url('../images/fuel-efficiency.jpg');
+}

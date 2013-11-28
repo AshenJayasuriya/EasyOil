@@ -58,6 +58,9 @@
 </form:form>
 </div>
 
+<div class = "img">
+
+</div>
 
 </body>
 </html>
