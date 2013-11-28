@@ -43,7 +43,7 @@ public class Corns {
 			  // int return_values = currency_change.Update(k,i);
 			
 			String xmlRequest = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
-			+ "<hs:CurrencyRequest xmlns:hs=\http://com/blog/samples/webservices/accountservice\">"
+			+ "<hs:CurrencyRequest xmlns:hs=\"http://com/blog/samples/webservices/accountservice\">"
 			+ "<hs:Currency>LKR</hs:Currency>" 
 			+"<hs:Value>0</hs:Value>" 
 			+ "</hs:CurrencyRequest>";
