@@ -13,10 +13,8 @@
 </head>
 
 <body>
-
-
+	
 <h2>Welcome to Easy Oil Corporation User Page</h2>
-
 
 <%
    Date date = new Date();
@@ -26,42 +24,21 @@
 <hr></hr>
 <hr></hr>
 
-   <table>
-    <tr>
-        <td> <h3>Welcome, &nbsp; &nbsp; <h3>${user_name}</h3> </td>
-    </tr>
- 
-</table>  
-<div class ="main1">
-		<table align="left">
-			<tr> <br> <br>  </tr>
-			<tr>
+         <h3>You are Welcome </h3><h3>&nbsp; &nbsp; ${user_name}</h3> 
+        
+        <br>
 
-        <td><p>${headline}</p></td>
-
-    </tr>
-
-    <tr></tr>
-
-     <tr>
-        <td><label>${content}</label></td>
-   </tr>
-			<tr><tr>
-			
-			
-			<tr>
-                            <th colspan="2"> 
-                                <h3>Todays Price of a Crude Oil Barrel <h2>
-                                <h3> ${currency_type} &nbsp;&nbsp; ${cost}  </h3>  
-                            </th>
-			</tr>
-			
-		</table>
-</div>
-
-<div class ="img">
-		
-</div>
-
+        <div class="headline">
+   			<h3>${headline} </h3>
+   		</div>
+   		<br>
+        <div class = "content">
+        	<h3>${content}</h3>
+		</div>
+		<br>
+        <div class = "val">
+            <h3> ${currency_type} &nbsp;&nbsp; ${cost}  </h3> 
+      	</div>
+      	
 	</body>
 </html>

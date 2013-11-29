@@ -1,35 +1,31 @@
-h1{"src/main/webapp/resources/css/main.css"
-	color:green;
-}
 
 h2{
-	COLOR: #0000ff; margin-left: 400px;
+	COLOR: #0000ff; 
+	margin-left: 30%;
 }
 
 h3{
-	margin-right: 50px;
+	margin-right: 7%;
 }
 
 .data{
-	margin-left: 80px; margin-top:50px ;width : 341px; height : 166px;
+	margin-left: 3%; margin-top:7% ;width : 34%; height : 17%;
 	float: left;
 }
 .data1{
-	margin-left: 600px;margin-top: 125px; border: solid; width : 341px; height : 298px;
+	margin-left: 55%;margin-top: 10%; border: solid; width : 341px; height : 298px;
 	background-image: url('../images/fuel-efficiency.jpg');
 }
 
 body
 {
-background-image:url('../images/yellow-background.jpg');
+	background-image:url('../images/yellow-background.jpg');
+	top right no-repeat; 
+	background-position:fixed;
 }
 
 p{
-	color:Black;font-style:normal;font-size:medium;font-weight:bold;margin-left: 50px;
-}
-
-td{
-	COLOR: #000000;
+	color:Black;font-style:normal;font-size:medium;font-weight:bold;margin-left: 7%;
 }
 
 .testbutton {
@@ -49,6 +45,7 @@ td{
   background: -webkit-gradient(linear, left top, left bottom, from(#63B8EE), to(#468CCF));
   background: -moz-linear-gradient(top,  #63B8EE,  #468CCF);
 }
+
 .testbutton:hover {
   color: #14396A !important;
   background: purple;

@@ -1,27 +1,32 @@
 @CHARSET "UTF-8";
 
 body{
-background-image: url('../images/birds-and-leaves-on-yellow-background.jpg');
+	background-image: url('../images/birds-and-leaves-on-yellow-background.jpg');
 }
 
 h2{
-	margin-left:450px;
+	margin-left:45%;
 }
 
 h3{
-	margin-right: 50px;
+	margin-right: 6%;
 }
 
 p{
-	margin-left: 50px;
+	margin-left: 6%;
 }
 
 .actionbox{
-	margin-left:100px; margin-top: 50px;
+	margin-left:12%; 
+	margin-top: 6%;
 	float: left;
 }
 
 .img{
-	margin-left: 720px;margin-top: 10px; border: solid; width : 350px; height : 350px;
+	margin-left: 70% ;
+	margin-top: 2%; 
+	border: solid; 
+	width : 35%; 
+	height : 35%;
 	background-image: url('../images/oil350_528e671c5c72d.jpg');
 }
