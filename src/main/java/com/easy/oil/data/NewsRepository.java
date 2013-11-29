@@ -6,7 +6,6 @@ import javax.persistence.NamedQuery;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.easy.oil.data.News;
 
