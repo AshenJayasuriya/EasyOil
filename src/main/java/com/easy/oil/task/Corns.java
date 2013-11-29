@@ -8,10 +8,10 @@ import com.easy.oil.data.BeanConfiguration;
 import com.easy.oil.data.Currency;
 import com.easy.oil.data.CurrencyRepository;
 
+//for currency converter
 import java.io.File;
-// for currency converter
-import java.io.StringReader;
 
+import java.io.StringReader;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -21,6 +21,11 @@ import javax.xml.transform.stream.StreamSource;
 import org.springframework.ws.WebServiceMessageFactory;
 import org.springframework.ws.client.core.WebServiceTemplate;
 import org.springframework.ws.transport.WebServiceMessageSender;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
 import org.w3c.dom.NodeList;
 
 public class Corns {
@@ -70,7 +75,7 @@ public class Corns {
 			try {
 
 				File fXmlFile = new File(
-						"/home/bimsara/Bimsarav/GitSpring/Currency Converter/file.xml");
+						"file.xml");
 				DocumentBuilderFactory dbFactory = DocumentBuilderFactory
 						.newInstance();
 				DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
