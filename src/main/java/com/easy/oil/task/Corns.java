@@ -7,13 +7,23 @@ import org.springframework.scheduling.annotation.Scheduled;
 import com.easy.oil.data.BeanConfiguration;
 import com.easy.oil.data.Currency;
 import com.easy.oil.data.CurrencyRepository;
-// for currency converter
+//for currency converter
+import java.io.File;
+
 import java.io.StringReader;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
+
 import org.springframework.ws.WebServiceMessageFactory;
 import org.springframework.ws.client.core.WebServiceTemplate;
 import org.springframework.ws.transport.WebServiceMessageSender;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 public class Corns {
 	//dependency injection
