@@ -28,11 +28,12 @@ public class StdUser implements Serializable {
 	private String password;
 	private boolean administrator;
 	private int currency;
+	private boolean authentication;
 	
 	
 	public StdUser(String first_name, String last_name, String username,
-			String e_mail, String password, boolean administrator,
-			int currency) {
+			String e_mail, String password, boolean administrator,boolean authentication,
+			int currency){
 		super();
 		this.first_name = first_name;
 		this.last_name = last_name;
@@ -41,8 +42,17 @@ public class StdUser implements Serializable {
 		this.password = DigestUtils.md5Hex(password);
 		this.administrator = administrator;
 		this.currency = currency;
+		this.authentication = authentication;
 	}
 	
+	public boolean isAuthentication() {
+		return authentication;
+	}
+
+	public void setAuthentication(boolean authentication) {
+		this.authentication = authentication;
+	}
+
 	public StdUser() {
 		super();		
 	}

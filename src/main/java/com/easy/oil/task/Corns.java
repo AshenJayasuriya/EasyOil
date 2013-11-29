@@ -28,6 +28,7 @@ public class Corns {
 		  for (int i = 1 ; i <= count ; i++){			   
 			   Currency change = currency_change.findOne(i);
 			   String type = change.getType();
+			   
 			  /*
 			   * web service goes here 
 			   * send currency type from currency object

@@ -133,7 +133,7 @@ public class HelloController {
 		return new ModelAndView("thank_you");
 	}
 	
-	public List getLastNews(int numOfNews){
+	private List getLastNews(int numOfNews){
 		List news  = (List) em.createQuery("SELECT n FROM News n ORDER BY n.timestmp DESC")
 				.setFirstResult(0)
 				.setMaxResults(numOfNews)
